@@ -1,0 +1,116 @@
+header
+{
+	width: 100%;
+	top: 0;
+    position: absolute;
+}
+
+body
+{
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	color: #06466E;
+}
+
+h1
+{
+	font-weight: lighter;
+	font-size: 3.3vw;
+	color: #FF9800;
+	margin-top: 10%;
+	text-align: center;
+}
+
+/* Navbar */
+ul.topnav
+{
+  	list-style-type: none;
+  	overflow: hidden;
+}
+
+ul.topnav li
+{
+	float: left;
+	padding-right: 0.7vw;
+	padding: 0.5vw 1.2vw;
+}
+
+ul.topnav li a
+{
+  	display: inline-block;
+  	color: #06466E;
+  	text-decoration: none;
+  	transition: 0.3s;
+  	font-size: 1.3vw;
+	font-weight: bold;
+}
+
+.topnav li a.active
+{
+	color: #FF9800;
+}
+
+/* Slides */
+#heading
+{
+	margin-top: 10%;
+	text-align: center;
+}
+
+input[type=text]
+{
+    border: none;
+    background: none;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+}
+
+.input
+{
+	min-width: 400px;
+}
+
+input[type=text]:focus
+{
+    border-bottom: 1px solid #3A7DB9;
+    outline: none;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+}
+
+input[type=submit]
+{
+    background: none;
+    border: none;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+/* Sets placeholder colour */
+::-webkit-input-placeholder
+{
+   color: #000000;
+}
+
+:-moz-placeholder
+{ /* Firefox 18- */
+   color: #000000;
+}
+
+::-moz-placeholder
+{  /* Firefox 19+ */
+   color: #000000;
+}
+
+:-ms-input-placeholder
+{  
+   color: #000000;
+}
