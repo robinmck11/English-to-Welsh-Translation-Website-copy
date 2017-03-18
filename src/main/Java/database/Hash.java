@@ -7,25 +7,45 @@
 
 package database;
 
-import java.io.FileInputStream;
 import java.security.MessageDigest;
+import java.security.SecureRandom;
 
 @SuppressWarnings("WeakerAccess")
 public class Hash
 {
+	private String originalString;
+	private String stringToHash;
+	
+	private String salt;
 	private String hashString;
-	private FileInputStream fileInputStream;
 	
 	/**
 	 * Constructor for Hash
-	 * @param fileInputStream of file to hash
+	 * @param originalString string to be hashed
 	 */
-	public Hash(FileInputStream fileInputStream)
+	public Hash(String originalString)
 	{
-		this.fileInputStream = fileInputStream;
+		this.originalString = originalString;
 		
+		salt = "";
+		stringToHash = "";
+		
+		saltString();
 		performHash();
-		saltHash();
+	}
+	
+	private void saltString()
+	{
+		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		SecureRandom random = new SecureRandom();
+		
+		for (int i = 0; i < 20; i++)
+		{
+			int randomNumber = random.nextInt(characters.length());
+			salt += characters.charAt(randomNumber);
+		}
+		
+		stringToHash = salt + originalString;
 	}
 	
 	/**
@@ -36,13 +56,9 @@ public class Hash
 		try
 		{
 			MessageDigest md = MessageDigest.getInstance("SHA-512");
-			byte[] dataBytes = new byte[1024];
+			md.update(stringToHash.getBytes());
 			
-			int numberRead;
-			while ((numberRead = fileInputStream.read(dataBytes)) != -1)
-				md.update(dataBytes, 0, numberRead);
-			
-			byte[] byteData = md.digest();
+			byte byteData[] = md.digest();
 			
 			StringBuilder sb = new StringBuilder();
 			for (byte aByteData : byteData)
@@ -55,9 +71,9 @@ public class Hash
 		}
 	}
 	
-	private void saltHash()
+	public String getSalt()
 	{
-		
+		return salt;
 	}
 	
 	/**
