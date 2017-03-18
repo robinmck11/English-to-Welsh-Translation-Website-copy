@@ -16,7 +16,49 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<properties>
+		<jdbc.url>jdbc:mysql://mysql.cs.bangor.ac.uk/eeu6de</jdbc.url>
+		<jdbc.username>eeu6de</jdbc.username>
+		<jdbc.password>123</jdbc.password>
+		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+	</properties>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sql-maven-plugin</artifactId>
+				<version>1.5</version>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.6</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<driver>${jdbc.driver}</driver>
+					<url>${jdbc.url}</url>
+					<username>${jdbc.username}</username>
+					<password>${jdbc.password}</password>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-test-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 		<finalName>Lab5</finalName>
 	</build>
 </project>
