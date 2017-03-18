@@ -1,4 +1,4 @@
-package main.database;
+package database;
 
 import java.sql.*;
 import java.io.*;
@@ -19,9 +19,9 @@ public class HSQLTester
         Connection conn = SimpleDataSource.getConnection();
         
         /*
-        InputStream stream = new FileInputStream("C:\\Users\\robin\\Documents\\Yr 2 Computer Science\\Semester 2\\MiniProject1\\src\\main\\java\\com\\mycompany\\main.database.HSQLTester\\database.properties");
-        SimpleDataSource.init(stream);
-        Connection conn = SimpleDataSource.getConnection();
+        InputStream stream = new FileInputStream("C:\\Users\\robin\\Documents\\Yr 2 Computer Science\\Semester 2\\MiniProject1\\src\\main\\java\\com\\mycompany\\main.database.database.HSQLTester\\database.properties");
+        database.SimpleDataSource.init(stream);
+        Connection conn = database.SimpleDataSource.getConnection();
         */
         
         Statement st = conn.createStatement();
