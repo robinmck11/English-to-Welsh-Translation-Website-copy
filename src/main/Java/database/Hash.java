@@ -7,6 +7,7 @@
 
 package database;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
@@ -19,6 +20,8 @@ public class Hash
 	private String salt;
 	private String hashString;
 	
+	private SecureRandom random;
+	
 	/**
 	 * Constructor for Hash
 	 * @param originalString string to be hashed
@@ -27,6 +30,7 @@ public class Hash
 	{
 		this.originalString = originalString;
 		
+		random = new SecureRandom();
 		salt = "";
 		stringToHash = "";
 		
@@ -36,15 +40,7 @@ public class Hash
 	
 	private void saltString()
 	{
-		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		SecureRandom random = new SecureRandom();
-		
-		for (int i = 0; i < 20; i++)
-		{
-			int randomNumber = random.nextInt(characters.length());
-			salt += characters.charAt(randomNumber);
-		}
-		
+		salt = new BigInteger(100, random).toString(32);
 		stringToHash = salt + originalString;
 	}
 	
