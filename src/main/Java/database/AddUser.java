@@ -17,6 +17,11 @@ public class AddUser
     InputStream inputStream;
     Connection conn;
 
+    /**
+     * Connects to the database
+     * Add a user
+     */
+
     public AddUser()
     {
         inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
@@ -61,7 +66,57 @@ public class AddUser
 
         try
         {
-            st.executeUpdate("INSERT INTO sysadmin VALUES(" + pk + ", " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+            st.executeUpdate("INSERT INTO sysadmin VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+        }
+        finally
+        {
+            st.close();
+            conn.close();
+        }
+    }
+
+    /**
+     * Add an instructor - Not tested
+     * @param userName
+     * @param password
+     * @param pk
+     * @throws SQLException
+     */
+
+    public void addInstructor(String userName, String password, String pk) throws SQLException
+    {
+        Statement st = conn.createStatement();
+
+        Hash hash = new Hash(password);
+
+        try
+        {
+            st.executeUpdate("INSERT INTO instructor VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+        }
+        finally
+        {
+            st.close();
+            conn.close();
+        }
+    }
+
+    /**
+     * Add a student - Not Tested
+     * @param userName
+     * @param password
+     * @param pk
+     * @throws SQLException
+     */
+
+    public void addStudent(String userName, String password, String pk) throws SQLException
+    {
+        Statement st = conn.createStatement();
+
+        Hash hash = new Hash(password);
+
+        try
+        {
+            st.executeUpdate("INSERT INTO student VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
         }
         finally
         {
