@@ -1,5 +1,4 @@
-package com.mycompany.database;
-
+package main.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
