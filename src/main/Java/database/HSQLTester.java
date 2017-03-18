@@ -12,7 +12,7 @@ public class HSQLTester
 
         // Test
         AddUser test1 = new AddUser();
-        test1.test();
+        test1.addSysAdmin();
 
     }
 }

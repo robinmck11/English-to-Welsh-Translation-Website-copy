@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  * Created by robin on 18/03/2017.
@@ -38,29 +39,32 @@ public class AddUser
 
     }
 
-    public void test() throws SQLException
+    /**
+     * A text interface to add a sysAdmin
+     * @throws SQLException
+     */
+
+    public void addSysAdmin() throws SQLException
     {
 
         Statement st = conn.createStatement();
 
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("NEW SYSADMIN:");
+        System.out.print("Enter PK: ");
+        String pk = in.next();
+        System.out.print("Enter username: ");
+        String userName = in.next();
+        System.out.print("Enter password:");
+        Hash hash = new Hash(in.next());
+
         try
         {
-            st.execute("CREATE TABLE IF NOT EXISTS accounts(balance DECIMAL(5, 2))");
-            st.execute("INSERT INTO accounts VALUES (999.99)");
-            st.execute("INSERT INTO accounts VALUES (666.66)");
-
-            ResultSet rs = st.executeQuery("SELECT * FROM accounts");
-
-            while (rs.next())
-            {
-                System.out.println(rs.getString("balance"));
-            }
-
-            st.execute("DROP TABLE accounts");
+            st.executeUpdate("INSERT INTO sysadmin VALUES(" + pk + ", " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
         }
         finally
         {
-            System.out.println("Table created and then dropped!");
             st.close();
             conn.close();
         }
