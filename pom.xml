@@ -15,10 +15,15 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
 	</dependencies>
 	<properties>
-		<jdbc.url>jdbc:mysql://mysql.cs.bangor.ac.uk/eeu6de</jdbc.url>
-		<jdbc.username>eeu6de</jdbc.username>
+		<jdbc.url>jdbc:mysql://localhost/translator</jdbc.url>
+		<jdbc.username>root</jdbc.username>
 		<jdbc.password>123</jdbc.password>
 		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
 	</properties>
