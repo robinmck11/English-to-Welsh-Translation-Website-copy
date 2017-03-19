@@ -18,7 +18,19 @@ public class HSQLTester
 
         // Test add admin
         UserValidation uV = new UserValidation();
-        uV.getHash("sysadmin", "Robin");
+
+        String dbHash = uV.getDBHash("sysadmin","robin");
+        String userHash = uV.userHash("abc", "sysadmin", "robin");
+
+        System.out.println(dbHash);
+        System.out.println(userHash);
+
+        if (dbHash.equals(userHash))
+        {
+            System.out.println("EQUAL");
+        }
+        else
+            System.out.println("NOT EQUAL");
 
     }
 }

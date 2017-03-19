@@ -14,7 +14,6 @@ import java.security.SecureRandom;
 @SuppressWarnings("WeakerAccess")
 public class Hash
 {
-	private String originalString;
 	private String stringToHash;
 	
 	private String salt;
@@ -24,13 +23,16 @@ public class Hash
 	
 	/**
 	 * Constructor for Hash
-	 * @param originalString string to be hashed
+	 * @param stringToHash string to be hashed
 	 */
-	public Hash(String originalString)
+	public Hash(String stringToHash, boolean saltString)
 	{
-		this.originalString = originalString;
+		this.stringToHash = stringToHash;
 		
 		random = new SecureRandom();
+
+		if (saltString)
+			saltString();
 		
 		performHash();
 	}
@@ -38,8 +40,9 @@ public class Hash
 	public void saltString()
 	{
 		salt = new BigInteger(100, random).toString(32);
-		stringToHash = salt + originalString;
+		stringToHash = salt + stringToHash;
 	}
+
 	
 	/**
 	 * Creates a SHA-512 hash of the given file

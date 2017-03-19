@@ -60,7 +60,7 @@ public class AddUser
 		System.out.print("Enter username: ");
 		String userName = in.next();
 		System.out.print("Enter password:");
-		Hash hash = new Hash(in.next());
+		Hash hash = new Hash(in.next(), true);
 		
 		try
 		{
@@ -84,7 +84,7 @@ public class AddUser
 	{
 		Statement st = conn.createStatement();
 		
-		Hash hash = new Hash(password);
+		Hash hash = new Hash(password, true);
 		
 		try
 		{
@@ -108,7 +108,7 @@ public class AddUser
 	{
 		Statement st = conn.createStatement();
 		
-		Hash hash = new Hash(password);
+		Hash hash = new Hash(password, true);
 		
 		try
 		{
