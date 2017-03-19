@@ -98,7 +98,6 @@ public class AddUser
 	
 	/**
 	 * Add a student - Not Tested
-	 *
 	 * @param userName
 	 * @param password
 	 * @throws SQLException
