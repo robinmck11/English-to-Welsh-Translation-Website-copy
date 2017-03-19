@@ -17,7 +17,7 @@ public class CreateTables
     private Connection conn;
 
     public CreateTables() throws SQLException {
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+        inputStream = CreateTables.class.getResourceAsStream("/database.properties");
 
         try
         {

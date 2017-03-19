@@ -1,7 +1,5 @@
 package database;
 
-import tests.HSQLTester;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -28,7 +26,7 @@ public class AddTranslation
         this.englishNoun = englishNoun;
         this.welshNoun = welshNoun;
 
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+        inputStream = AddTranslation.class.getResourceAsStream("/database.properties");
 
         try
         {

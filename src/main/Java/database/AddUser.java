@@ -7,8 +7,6 @@
 
 package database;
 
-import tests.HSQLTester;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -29,7 +27,7 @@ public class AddUser
 
 	public AddUser()
 	{
-		inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+		inputStream = AddUser.class.getResourceAsStream("/database.properties");
 		
 		try
 		{
