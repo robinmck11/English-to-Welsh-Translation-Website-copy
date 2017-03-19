@@ -1,5 +1,6 @@
 package database;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -13,6 +14,11 @@ public class AddTranslation
 {
     private String englishNoun;
     private String welshNoun;
+
+    private final String englishTable = "englishNoun";
+    private final String welshTable = "welshNoun";
+    private final String translationTable = "translation";
+
 
     private InputStream inputStream;
     private Connection conn;
@@ -36,30 +42,35 @@ public class AddTranslation
 
     }
 
-    private void insertEnglish()
-    {
-        try {
-            Statement st = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    private void insertEnglish(String noun) throws SQLException {
+        Statement st = conn.createStatement();
+
+        try
+        {
+            st.executeUpdate("INSERT INTO " + englishTable + " VALUES ('" + noun + "');");
+        }
+        finally
+        {
+            st.close();
         }
     }
 
-    private void insertWelsh()
+    private void insertWelsh(String noun) throws SQLException
     {
-        try {
-            Statement st = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        Statement st = conn.createStatement();
+        try
+        {
+            st.executeUpdate("INSERT INTO " + welshTable + " VALUES ('" + noun + "');");
+        }
+        finally
+        {
+            st.close();
         }
     }
 
-    private void insertTranslation()
-    {
-        try {
-            Statement st = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    private void addTranslation(String english, String welsh) throws SQLException {
+        Statement st = conn.createStatement();
+
+        st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
     }
 }

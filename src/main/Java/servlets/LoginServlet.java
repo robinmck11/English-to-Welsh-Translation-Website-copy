@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet
 		String referrer = request.getHeader("referer");
 		String tableName = "";
 		String redirectPage = "";
-		
+
 		if (referrer.contains("adminLogin"))
 		{
 			tableName = "sysAdmin";
@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet
 		{
 			tableName = "student";
 			redirectPage = "studentHomepage.jsp";
+			System.out.println(tableName + "fsd" + redirectPage);
 		}
 		else if (referrer.contains("instructorLogin"))
 		{
