@@ -29,21 +29,23 @@
 
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentName" placeholder="Student Name"></p>
+                    <p><input type="text" name="studentUsername" placeholder="Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add"></p>
                 </div>
 
                 <div id="removeStudent" style="display:none;">
-                    <p><input type="text" name="studentName" placeholder="Student Name"></p>
+                    <p><input type="text" name="studentUsername" placeholder="Student Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Remove"></p>
                 </div>
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorName" placeholder="Instructor Name"></p>
+                    <p><input type="text" name="instructorUsername" placeholder="Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add"></p>
                 </div>
 
                 <div id="removeInstructor" style="display:none;">
-                    <p><input type="text" name="instructorName" placeholder="Instructor Name"></p>
+                    <p><input type="text" name="instructorUsername" placeholder="Instructor Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Remove"></p>
                 </div>
             </form>

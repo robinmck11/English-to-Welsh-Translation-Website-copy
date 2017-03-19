@@ -4,6 +4,35 @@
     <title>Test</title>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+    <script src="game.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        jQuery(function ($) {
+            $('#code').click(function () {
+                var val = ((document.getElementById('qty').value) * 5) + '%';
+                $('.progress-bar').width(val).text(val)
+            })
+        });
+    </script>
+    <script>
+        function modify_qty(val) {
+            var qty = document.getElementById('qty').value;
+            var new_qty = parseInt(qty,10) + val;
+
+            if (new_qty < 0) {
+                new_qty = 0;
+            }
+
+            document.getElementById('qty').value = new_qty;
+            return new_qty;
+        }
+    </script>
+    <script>
+        function startTest() {
+            $("#testForm").show()
+            $("#start").hide()
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -18,7 +47,23 @@
 
     <div id="slide1">
         <div id="heading">
-            <h2>Take Test</h2>
+            <h1><p style="text-align: center"><input type="submit" id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1>
+
+            <div id="testForm" style="display: none">
+                <h2><input id="qty" value="0" style="display: none"/></h2>
+
+                <div class="progress" style="width: 50%; margin: auto;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                         aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                    </div>
+                </div>
+
+                <div id="add">
+                    <p><input type="text" name="englishNoun" placeholder="Question" readonly="readonly">
+                        <input type="text" name="welshNoun" placeholder="Answer"></p>
+                    <p style="text-align: center"><input type="submit" id="code" onclick="modify_qty(1)" name="submit" value="Next"></p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
