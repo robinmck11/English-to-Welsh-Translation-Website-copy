@@ -18,6 +18,8 @@ public class UserValidation
     String dbHash;
     String dbSalt;
 
+    String userHash;
+
     boolean isEqual;
 
     public UserValidation()
@@ -75,16 +77,9 @@ public class UserValidation
 
     public String userHash(String pass, String tableName, String userName)
     {
-        Hash userHash = new Hash(getDBSalt(tableName, userName) + pass);
+        Hash userHash = new Hash(getDBSalt(tableName, userName) + pass, false);
         return userHash.getHashString();
     }
-
-    /*
-
-    public boolean compareHashes()
-    {}
-
-    */
 
 
 }
