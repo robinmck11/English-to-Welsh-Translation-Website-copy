@@ -25,13 +25,33 @@ public class LoginServlet extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		String referrer = request.getHeader("referer");
+		String tableName = "";
+		String redirectPage = "";
+		
+		if (referrer.contains("adminLogin"))
+		{
+			tableName = "sysAdmin";
+			redirectPage = "adminHomepage.jsp";
+		}
+		else if (referrer.contains("studentLogin"))
+		{
+			tableName = "student";
+			redirectPage = "studentHomepage.jsp";
+		}
+		else if (referrer.contains("instructorLogin"))
+		{
+			tableName = "instructor";
+			redirectPage = "instructorHomepage.jsp";
+		}
+		
 		// get request parameters for userID and password
 		String user = request.getParameter("user");
 		String pwd = request.getParameter("pwd");
 		
 		UserValidation uV = new UserValidation();
-		String dbHash = uV.getDBHash("sysadmin", user);
-		String userHash = uV.userHash(pwd, "sysadmin", user);
+		String dbHash = uV.getDBHash(tableName, user);
+		String userHash = uV.userHash(pwd, tableName, user);
 		
 		if (dbHash.equals(userHash))
 		{
@@ -39,7 +59,7 @@ public class LoginServlet extends HttpServlet
 			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30 * 60);
 			response.addCookie(loginCookie);
-			response.sendRedirect("adminHomepage.jsp");
+			response.sendRedirect(redirectPage);
 		}
 		else
 		{
