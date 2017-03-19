@@ -10,9 +10,9 @@ public class HSQLTester
 
     public static void main(String[] args) throws IOException,ClassNotFoundException, SQLException {
 
-        // Test
+        // Test add admin
         AddUser test1 = new AddUser();
-        test1.addSysAdmin();
+        test1.addInstructor("fkjsdfkl","dfsdfsdf");
 
     }
 }

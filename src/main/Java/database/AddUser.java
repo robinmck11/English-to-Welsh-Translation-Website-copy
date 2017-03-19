@@ -57,8 +57,6 @@ public class AddUser
         Scanner in = new Scanner(System.in);
 
         System.out.println("NEW SYSADMIN:");
-        System.out.print("Enter PK: ");
-        String pk = in.next();
         System.out.print("Enter username: ");
         String userName = in.next();
         System.out.print("Enter password:");
@@ -66,7 +64,7 @@ public class AddUser
 
         try
         {
-            st.executeUpdate("INSERT INTO sysadmin VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+            st.executeUpdate("INSERT INTO sysadmin VALUES('" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
         }
         finally
         {
@@ -83,7 +81,7 @@ public class AddUser
      * @throws SQLException
      */
 
-    public void addInstructor(String userName, String password, String pk) throws SQLException
+    public void addInstructor(String userName, String password) throws SQLException
     {
         Statement st = conn.createStatement();
 
@@ -91,7 +89,7 @@ public class AddUser
 
         try
         {
-            st.executeUpdate("INSERT INTO instructor VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+            st.executeUpdate("INSERT INTO instructor VALUES('" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
         }
         finally
         {
@@ -104,11 +102,10 @@ public class AddUser
      * Add a student - Not Tested
      * @param userName
      * @param password
-     * @param pk
      * @throws SQLException
      */
 
-    public void addStudent(String userName, String password, String pk) throws SQLException
+    public void addStudent(String userName, String password) throws SQLException
     {
         Statement st = conn.createStatement();
 
@@ -116,7 +113,12 @@ public class AddUser
 
         try
         {
-            st.executeUpdate("INSERT INTO student VALUES('" + pk + "', " + "'" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+            st.executeUpdate("INSERT INTO student VALUES('" + userName + "', "  + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+        }
+        catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e)
+        {
+            // HANDLE THIS GRACEFULLY - Prompt user to choose another username -
+            System.out.println("USERNAME ALREADY EXISTS!!");
         }
         finally
         {
