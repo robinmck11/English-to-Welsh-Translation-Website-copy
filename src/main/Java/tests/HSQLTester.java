@@ -5,7 +5,11 @@
 	Version:        1.0
 */
 
-package database;
+package tests;
+
+import database.AddUser;
+import database.InsertGrade;
+import database.UserValidation;
 
 import java.sql.*;
 import java.io.*;
