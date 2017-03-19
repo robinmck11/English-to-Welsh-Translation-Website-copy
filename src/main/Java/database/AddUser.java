@@ -25,7 +25,6 @@ public class AddUser
 	 * Connects to the database
 	 * Add a user
 	 */
-	
 	public AddUser()
 	{
 		inputStream = HSQLTester.class.getResourceAsStream("/database.properties");

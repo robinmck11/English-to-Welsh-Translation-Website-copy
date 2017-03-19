@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 
 public class HSQLTester
 {
-	
 	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, InterruptedException
 	{
 		
