@@ -1,6 +1,6 @@
 /*
 	Program Title:  AddUser
-	Author:         Robin McKenaa
+	Author:         Robin McKenna
 	Created:        18/03/2017
 	Version:        1.0
 */
