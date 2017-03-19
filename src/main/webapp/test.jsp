@@ -4,7 +4,6 @@
     <title>Test</title>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
-    <script src="game.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         jQuery(function ($) {
@@ -52,11 +51,12 @@
             <div id="testForm" style="display: none">
                 <h2><input id="qty" value="0" style="display: none"/></h2>
 
-                <div class="progress" style="width: 50%; margin: auto;">
+                <p><div class="progress" style="width: 50%; margin: auto;">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0"
                          aria-valuemin="0" aria-valuemax="100" style="width:0%">
                     </div>
-                </div>
+                </div></p>
+                <br>
 
                 <div id="add">
                     <p><input type="text" name="englishNoun" placeholder="Question" readonly="readonly">

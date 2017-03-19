@@ -1,3 +1,10 @@
+/*
+	Program Title:  AddUser
+	Author:         Robin McKenna
+	Created:        18/03/2017
+	Version:        1.0
+*/
+
 package database;
 
 import java.io.IOException;
@@ -8,14 +15,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-/**
- * Created by robin on 18/03/2017.
- */
-
+@SuppressWarnings("WeakerAccess")
 public class AddUser
 {
-	InputStream inputStream;
-	Connection conn;
+	private InputStream inputStream;
+	private Connection conn;
 	
 	/**
 	 * Connects to the database
@@ -94,7 +98,6 @@ public class AddUser
 	
 	/**
 	 * Add a student - Not Tested
-	 *
 	 * @param userName
 	 * @param password
 	 * @throws SQLException
