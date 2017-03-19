@@ -32,7 +32,7 @@ public class InsertGrade
 
         Date date = new Date();
 
-        SimpleDateFormat sDF1 = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat sDF1 = new SimpleDateFormat("yyyy.MM.dd");
         SimpleDateFormat sDF2 = new SimpleDateFormat("hh:mm:ss");
 
         dateGained = sDF1.format(date);
