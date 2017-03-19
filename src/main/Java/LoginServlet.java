@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String userID = "Pankaj";
-	private final String password = "journaldev";
+	private final String userID = "hey";
+	private final String password = "hey";
 	
 	protected void doPost(HttpServletRequest request,
 						  HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30*60);
 			response.addCookie(loginCookie);
-			response.sendRedirect("LoginSuccess.jsp");
+			response.sendRedirect("LoginSuccessPage.jsp");
 		}else{
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
 			PrintWriter out= response.getWriter();

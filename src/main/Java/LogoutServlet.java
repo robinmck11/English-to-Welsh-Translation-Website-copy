@@ -9,22 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LogoutServlet
  */
-public class LogoutServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		response.setContentType("text/html");
 		Cookie loginCookie = null;
 		Cookie[] cookies = request.getCookies();
-		if(cookies != null){
-			for(Cookie cookie : cookies){
-				if(cookie.getName().equals("user")){
+		if (cookies != null)
+		{
+			for (Cookie cookie : cookies)
+			{
+				if (cookie.getName().equals("user"))
+				{
 					loginCookie = cookie;
 					break;
 				}
 			}
 		}
-		if(loginCookie != null){
+		if (loginCookie != null)
+		{
 			loginCookie.setMaxAge(0);
 			response.addCookie(loginCookie);
 		}
