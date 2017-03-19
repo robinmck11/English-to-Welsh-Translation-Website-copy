@@ -12,41 +12,34 @@ import java.util.Properties;
  */
 
 public class SimpleDataSource
-
 {
-    /**
-     * Initializes the data source.
-     *
-     * @param fileName the name of the property file that contains the database
-     * driver, url, username and password
-     */
-    
-    
-    public static void init(InputStream fileName) throws IOException, ClassNotFoundException {
-        
-        Properties props = new Properties();
-        props.load(fileName);
+	private static String url;
+	private static String username;
+	private static String password;
 
-        String driver = props.getProperty("jdbc.driver");
-        url = props.getProperty("jdbc.url");
-        username = props.getProperty("jdbc.username");
-        password = props.getProperty("jdbc.password");
-
-        Class.forName(driver);
-    }
-
-    /**
-     * Gets a connection to the database.
-     *
-     * @return the database connection
-     */
-    
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url,
-                username, password);
-    }
-
-    private static String url;
-    private static String username;
-    private static String password;
+	/**
+	 * Initializes the data source.
+	 * @param fileName the name of the property file that contains the database driver, url, username and password
+	 */
+	public static void init(InputStream fileName) throws IOException, ClassNotFoundException
+	{
+		Properties props = new Properties();
+		props.load(fileName);
+		
+		String driver = props.getProperty("jdbc.driver");
+		url = props.getProperty("jdbc.url");
+		username = props.getProperty("jdbc.username");
+		password = props.getProperty("jdbc.password");
+		
+		Class.forName(driver);
+	}
+	
+	/**
+	 * Gets a connection to the database.
+	 * @return the database connection
+	 */
+	public static Connection getConnection() throws SQLException
+	{
+		return DriverManager.getConnection(url, username, password);
+	}
 }
