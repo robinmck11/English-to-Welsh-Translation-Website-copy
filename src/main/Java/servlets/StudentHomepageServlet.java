@@ -14,13 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class InstructorHomepageServlet extends HttpServlet
+public class StudentHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int noWords = 30;
-		request.setAttribute("noWords", noWords);
+		int noTestsTaken = 0;
+		int averageScore = 0;
+		request.setAttribute("noTestsTaken", noTestsTaken);
+		request.setAttribute("averageScore", averageScore);
 		
-		request.getRequestDispatcher("/WEB-INF/instructorHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/studentHomepage.jsp").forward(request, response);
 	}
 }

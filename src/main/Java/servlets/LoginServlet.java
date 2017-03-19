@@ -37,12 +37,12 @@ public class LoginServlet extends HttpServlet
 		else if (referrer.contains("studentLogin"))
 		{
 			tableName = "student";
-			redirectPage = "studentHomepage.jsp";
+			redirectPage = "StudentHomepageServlet";
 		}
 		else if (referrer.contains("instructorLogin"))
 		{
 			tableName = "instructor";
-			redirectPage = "instructorHomepage.jsp";
+			redirectPage = "InstructorHomepageServlet";
 		}
 		
 		// get request parameters for userID and password
