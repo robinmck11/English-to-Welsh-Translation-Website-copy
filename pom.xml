@@ -27,7 +27,7 @@
 		</dependency>
 	</dependencies>
 	<properties>
-		<jdbc.url>jdbc:mysql://localhost/translator</jdbc.url>
+		<jdbc.url>jdbc:mysql://localhost/sys</jdbc.url>
 		<jdbc.username>root</jdbc.username>
 		<jdbc.password>123</jdbc.password>
 		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
