@@ -68,12 +68,33 @@ input[type=text]
     font-weight: lighter;
 }
 
+input[type=password]
+{
+    border: none;
+    background: none;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+}
+
 .input
 {
 	min-width: 400px;
 }
 
 input[type=text]:focus
+{
+    border-bottom: 1px solid #3A7DB9;
+    outline: none;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: lighter;
+}
+
+input[type=password]:focus
 {
     border-bottom: 1px solid #3A7DB9;
     outline: none;
