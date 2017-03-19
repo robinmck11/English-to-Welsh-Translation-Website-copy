@@ -31,14 +31,11 @@ public class Hash
 		this.originalString = originalString;
 		
 		random = new SecureRandom();
-		salt = "";
-		stringToHash = "";
 		
-		saltString();
 		performHash();
 	}
 	
-	private void saltString()
+	public void saltString()
 	{
 		salt = new BigInteger(100, random).toString(32);
 		stringToHash = salt + originalString;
