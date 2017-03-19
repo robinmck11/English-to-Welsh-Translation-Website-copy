@@ -45,19 +45,26 @@ public class DBCounts
      * @return the count
      */
 
-    public int getCount(String tableName, String field) throws SQLException {
+    public int getCount(String tableName, String field)
+    {
 
-        Statement st = conn.createStatement();
+        Statement st = null;
 
-        ResultSet rs = st.executeQuery("SELECT count(" + field + ") FROM " + tableName + ";");
+        try {
 
-        while(rs.next())
-        {
-            count = rs.getString(1);
+            st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery("SELECT count(" + field + ") FROM " + tableName + ";");
+
+            while(rs.next())
+            {
+                count = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return Integer.parseInt(count);
-
     }
 
 
