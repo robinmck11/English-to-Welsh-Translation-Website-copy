@@ -11,7 +11,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="instructorHomepage.jsp" class="active">Instructor Homepage</a></li>
             <li><a href="../manageWords.jsp">Manage Words</a></li>
-            <li><a href="../index.html">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
 

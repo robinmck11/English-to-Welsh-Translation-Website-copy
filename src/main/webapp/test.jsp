@@ -40,14 +40,13 @@
             <li><a href="WEB-INF/studentHomepage.jsp">Student Homepage</a></li>
             <li><a href="test.jsp" class="active">Take Test</a></li>
             <li><a href="pastTests.jsp">View Past Tests</a></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
 
     <div id="slide1">
         <div id="heading">
             <form action="StartTestServlet" method="post"><h1><p style="text-align: center"><input type="submit" id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1></form>
-
 
             <div id="testForm" style="display: none">
                 <h2><input id="qty" value="0" style="display: none"/></h2>
