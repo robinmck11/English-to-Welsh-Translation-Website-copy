@@ -1,7 +1,5 @@
 package database;
 
-import tests.HSQLTester;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -31,9 +29,8 @@ public class UserValidation
      */
     public UserValidation()
     {
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+        inputStream = UserValidation.class.getResourceAsStream("/database.properties");
 
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
 
         try {
             SimpleDataSource.init(inputStream);
