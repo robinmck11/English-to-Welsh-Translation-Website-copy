@@ -54,9 +54,8 @@ public class AddUser
 		Statement st = conn.createStatement();
 		
 		Scanner in = new Scanner(System.in);
-		
-		System.out.println("NEW SYSADMIN:");
-		System.out.print("Enter username: ");
+
+		System.out.print("Enter System Administrator username: ");
 		String userName = in.next();
 		System.out.print("Enter password: ");
 		Hash hash = new Hash(in.next(), true);

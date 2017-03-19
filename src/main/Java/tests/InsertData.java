@@ -19,8 +19,7 @@ public class InsertData
 
         // Create Tables
         CreateTables createTables = new CreateTables();
-
-        System.out.println("Now adding data to tables");
+        System.out.println("Tables Created");
 
         AddUser admin = new AddUser();
 
@@ -49,6 +48,8 @@ public class InsertData
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        System.out.println("-USERNAMES AND PASSWORDS -\nstudent1: student1\nstudent2: student2\ninstructor1: instructor1\ninstructor2: instructor2");
 
         InsertGrade student1Grade1 = new InsertGrade(20, "student1");
     }
