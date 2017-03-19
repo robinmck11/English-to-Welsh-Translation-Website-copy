@@ -41,4 +41,24 @@
     <servlet-name>AdminHomepageServlet</servlet-name>
     <url-pattern>/AdminHomepageServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InstructorHomepageServlet</servlet-name>
+    <servlet-class>servlets.InstructorHomepageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InstructorHomepageServlet</servlet-name>
+    <url-pattern>/InstructorHomepageServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StudentHomepageServlet</servlet-name>
+    <servlet-class>servlets.StudentHomepageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>StudentHomepageServlet</servlet-name>
+    <url-pattern>/StudentHomepageServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

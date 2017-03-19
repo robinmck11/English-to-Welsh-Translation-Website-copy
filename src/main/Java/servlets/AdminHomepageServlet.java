@@ -18,11 +18,11 @@ public class AdminHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int numberOfStudents = 2;
-		int numberOfInstructors = 1;
-		request.setAttribute("noStudents", numberOfStudents);
-		request.setAttribute("noInstructors", numberOfInstructors);
+		int noStudents = 2;
+		int noInstructors = 1;
+		request.setAttribute("noStudents", noStudents);
+		request.setAttribute("noInstructors", noInstructors);
 		
-		request.getRequestDispatcher("/adminHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/adminHomepage.jsp").forward(request, response);
 	}
 }

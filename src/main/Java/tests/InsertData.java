@@ -33,7 +33,7 @@ public class InsertData
         AddUser student2 = new AddUser();
 
         try {
-            student1.addStudent("student1", "student1");
+                student1.addStudent("student1", "student1");
             student2.addStudent("student2", "student2");
         } catch (SQLException e) {
             e.printStackTrace();
