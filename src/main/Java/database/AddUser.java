@@ -108,6 +108,9 @@ public class AddUser
 		Statement st = conn.createStatement();
 		
 		Hash hash = new Hash(password, true);
+
+		// TEST
+		System.out.println("length of salt: " + hash.getSalt().length());
 		
 		try
 		{

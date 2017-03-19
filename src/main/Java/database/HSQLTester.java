@@ -16,7 +16,11 @@ public class HSQLTester
 
     public static void main(String[] args) throws IOException,ClassNotFoundException, SQLException {
 
-        // Test add admin
+        // Test - add sysadmin
+        AddUser sysAdmin = new AddUser();
+        sysAdmin.addSysAdmin();
+
+        // Test - validate password
         UserValidation uV = new UserValidation();
 
         String dbHash = uV.getDBHash("sysadmin","robin");
@@ -30,7 +34,19 @@ public class HSQLTester
             System.out.println("EQUAL");
         }
         else
+        {
             System.out.println("NOT EQUAL");
+        }
+
+        // Test - add student
+        AddUser newStudent = new AddUser();
+
+        newStudent.addStudent("Ryan", "111");
+
+        // Test - InsertGrade
+        InsertGrade grade1 = new InsertGrade(20, "Ryan");
+        grade1.insertGrade();
+
 
     }
 }
