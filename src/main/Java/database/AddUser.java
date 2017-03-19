@@ -109,8 +109,6 @@ public class AddUser
 		
 		Hash hash = new Hash(password, true);
 
-		// TEST
-		System.out.println("length of salt: " + hash.getSalt().length());
 		
 		try
 		{
