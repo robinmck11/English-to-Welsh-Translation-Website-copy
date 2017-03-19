@@ -25,10 +25,9 @@ public class AddUser
 	 * Connects to the database
 	 * Add a user
 	 */
+
 	public AddUser()
 	{
-		inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
-		
 		inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
 		
 		try
