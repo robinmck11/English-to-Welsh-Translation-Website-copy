@@ -1,8 +1,12 @@
+/*
+	Program Title:  ValidateUser
+	Author:         Robin McKenna
+	Created:        18/03/2017
+	Version:        1.0
+*/
+
 package database;
 
-/**
- * Created by robin on 18/03/2017.
- */
 public class ValidateUser
 {
     private String salt;
