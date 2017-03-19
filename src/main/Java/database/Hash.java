@@ -40,6 +40,7 @@ public class Hash
 		salt = new BigInteger(100, random).toString(32);
 		stringToHash = salt + originalString;
 	}
+
 	
 	/**
 	 * Creates a SHA-512 hash of the given file

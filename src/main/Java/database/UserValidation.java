@@ -38,7 +38,7 @@ public class UserValidation
         }
     }
 
-    public String getDBSalt(String tableName, String userName)
+    private String getDBSalt(String tableName, String userName)
     {
         try {
             Statement st = conn.createStatement();
@@ -73,9 +73,9 @@ public class UserValidation
         return dbHash;
     }
 
-    public String userHash(String pass)
+    public String userHash(String pass, String tableName, String userName)
     {
-        Hash userHash = new Hash(pass);
+        Hash userHash = new Hash(getDBSalt(tableName, userName) + pass);
         return userHash.getHashString();
     }
 

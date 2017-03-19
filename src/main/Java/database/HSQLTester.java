@@ -12,7 +12,7 @@ public class HSQLTester
 
         // Test add admin
         UserValidation uV = new UserValidation();
-        uV.getHash("sysadmin", "Robin");
+
 
     }
 }
