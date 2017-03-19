@@ -1,6 +1,7 @@
 package database;
 
-import javax.swing.plaf.nimbus.State;
+import tests.HSQLTester;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -23,8 +24,7 @@ public class AddTranslation
     private InputStream inputStream;
     private Connection conn;
 
-    public AddTranslation(String englishNoun, String welshNoun)
-    {
+    public AddTranslation(String englishNoun, String welshNoun) throws SQLException {
         this.englishNoun = englishNoun;
         this.welshNoun = welshNoun;
 
@@ -35,10 +35,16 @@ public class AddTranslation
             SimpleDataSource.init(inputStream);
             conn = SimpleDataSource.getConnection();
 
+            addRecords();
+
         } catch (IOException | ClassNotFoundException | SQLException e)
         {
             e.printStackTrace();
+        } finally
+        {
+            conn.close();
         }
+
 
     }
 
@@ -72,5 +78,11 @@ public class AddTranslation
         Statement st = conn.createStatement();
 
         st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
+    }
+
+    private void addRecords() throws SQLException {
+        insertEnglish(englishNoun);
+        insertWelsh(welshNoun);
+        addTranslation(englishNoun, welshNoun);
     }
 }
