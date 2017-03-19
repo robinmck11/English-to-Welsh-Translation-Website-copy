@@ -9,7 +9,10 @@ import java.sql.Statement;
 
 /**
  * Created by robin on 18/03/2017.
+ * This class will authenticate the user by generating hashed passwords
+ * The generated hash can be compared with the one stored in the database
  */
+
 public class UserValidation
 {
     InputStream inputStream;
@@ -21,6 +24,10 @@ public class UserValidation
     String userHash;
 
     boolean isEqual;
+
+    /**
+     * Get connection to the database
+     */
 
     public UserValidation()
     {
@@ -40,6 +47,13 @@ public class UserValidation
         }
     }
 
+    /**
+     * Gets the salt from the database
+     * @param tableName the table to retrieve the information from
+     * @param userName The user to retrieve the information from
+     * @return the salt in the database
+     */
+
     private String getDBSalt(String tableName, String userName)
     {
         try {
@@ -57,6 +71,12 @@ public class UserValidation
         return dbSalt;
     }
 
+    /**
+     * Gets the has from the database for a given user
+     * @param tableName Name of the table
+     * @param userName name of the user
+     * @return the hash stored in the database
+     */
 
     public String getDBHash(String tableName, String userName)
     {
@@ -74,6 +94,15 @@ public class UserValidation
 
         return dbHash;
     }
+
+
+    /**
+     * Hash's the user's input with the salt in the database
+     * @param pass the user's input
+     * @param tableName the table to retrieve the data from
+     * @param userName the user to retrieve the data from
+     * @return the users hashed password
+     */
 
     public String userHash(String pass, String tableName, String userName)
     {
