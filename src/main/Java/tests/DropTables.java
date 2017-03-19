@@ -48,13 +48,13 @@ public class DropTables
         Statement st = conn.createStatement();
 
         try {
-            st.executeUpdate("DROP TABLE " + translation);
-            st.executeUpdate("DROP TABLE " + test);
-            st.executeUpdate("DROP TABLE " + englishNoun);
-            st.executeUpdate("DROP TABLE " + instructor);
-            st.executeUpdate("DROP TABLE " + student);
-            st.executeUpdate("DROP TABLE " + sysAdmin);
-            st.executeUpdate("DROP TABLE " + welshNoun);
+            st.executeUpdate("DROP TABLE IF EXISTS " + translation);
+            st.executeUpdate("DROP TABLE IF EXISTS " + test);
+            st.executeUpdate("DROP TABLE IF EXISTS " + englishNoun);
+            st.executeUpdate("DROP TABLE IF EXISTS " + instructor);
+            st.executeUpdate("DROP TABLE IF EXISTS " + student);
+            st.executeUpdate("DROP TABLE IF EXISTS " + sysAdmin);
+            st.executeUpdate("DROP TABLE IF EXISTS " + welshNoun);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally

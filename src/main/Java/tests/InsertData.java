@@ -11,21 +11,14 @@ import java.util.Scanner;
  */
 public class InsertData
 {
-    public static void main(String[] args)
-    {
-        Scanner in = new Scanner(System.in);
-        String input = in.next();
-        System.out.println("Drop tables ? (y/n)");
+    public static void main(String[] args) throws SQLException {
 
-        DropTables dropTables;
+        // Drop Tables
+        DropTables dropTables = new DropTables();
+        System.out.println("Tables have been dropped");
 
-        if (input.equals('y'))
-        {
-            dropTables = new DropTables();
-            System.out.println("Tables have been dropped");
-        }
-        else if (input.equals('n'))
-            System.out.println("No Tables Dropped");
+        // Create Tables
+        CreateTables createTables = new CreateTables();
 
         System.out.println("Now adding data to tables");
 
