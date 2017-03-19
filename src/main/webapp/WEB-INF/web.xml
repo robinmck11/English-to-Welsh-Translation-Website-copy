@@ -12,7 +12,6 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 
-
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>servlets.LoginServlet</servlet-class>
@@ -21,5 +20,25 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StartTestServlet</servlet-name>
+    <servlet-class>servlets.StartTestServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>StartTestServlet</servlet-name>
+    <url-pattern>/StartTestServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminHomepageServlet</servlet-name>
+    <servlet-class>servlets.AdminHomepageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminHomepageServlet</servlet-name>
+    <url-pattern>/AdminHomepageServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -17,8 +17,8 @@
 
     <div id="slide1">
         <div id="heading">
-            <h2>Total Number of Students: </h2>
-            <h2>Total Number of Instructors: </h2>
+            <h2>Total Number of Students: ${noStudents}</h2>
+            <h2>Total Number of Instructors: ${noInstructors}</h2>
         </div>
     </div>
 </body>

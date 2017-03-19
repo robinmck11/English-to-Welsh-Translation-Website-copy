@@ -14,7 +14,6 @@ import java.sql.Statement;
  * This class will authenticate the user by generating hashed passwords
  * The generated hash can be compared with the one stored in the database
  */
-
 public class UserValidation
 {
     InputStream inputStream;
@@ -30,7 +29,6 @@ public class UserValidation
     /**
      * Get connection to the database
      */
-
     public UserValidation()
     {
         inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
@@ -40,11 +38,8 @@ public class UserValidation
         try {
             SimpleDataSource.init(inputStream);
             conn = SimpleDataSource.getConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (IOException | ClassNotFoundException | SQLException e)
+        {
             e.printStackTrace();
         }
     }
@@ -55,7 +50,6 @@ public class UserValidation
      * @param userName The user to retrieve the information from
      * @return the salt in the database
      */
-
     private String getDBSalt(String tableName, String userName)
     {
         try {
@@ -79,7 +73,6 @@ public class UserValidation
      * @param userName name of the user
      * @return the hash stored in the database
      */
-
     public String getDBHash(String tableName, String userName)
     {
         try {
@@ -97,7 +90,6 @@ public class UserValidation
         return dbHash;
     }
 
-
     /**
      * Hash's the user's input with the salt in the database
      * @param pass the user's input
@@ -105,12 +97,9 @@ public class UserValidation
      * @param userName the user to retrieve the data from
      * @return the users hashed password
      */
-
     public String userHash(String pass, String tableName, String userName)
     {
         Hash userHash = new Hash(getDBSalt(tableName, userName) + pass, false);
         return userHash.getHashString();
     }
-
-
 }

@@ -46,7 +46,8 @@
 
     <div id="slide1">
         <div id="heading">
-            <h1><p style="text-align: center"><input type="submit" id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1>
+            <form action="StartTestServlet" method="post"><h1><p style="text-align: center"><input type="submit" id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1></form>
+
 
             <div id="testForm" style="display: none">
                 <h2><input id="qty" value="0" style="display: none"/></h2>

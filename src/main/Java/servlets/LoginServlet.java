@@ -32,13 +32,12 @@ public class LoginServlet extends HttpServlet
 		if (referrer.contains("adminLogin"))
 		{
 			tableName = "sysAdmin";
-			redirectPage = "adminHomepage.jsp";
+			redirectPage = "AdminHomepageServlet";
 		}
 		else if (referrer.contains("studentLogin"))
 		{
 			tableName = "student";
 			redirectPage = "studentHomepage.jsp";
-			System.out.println(tableName + "fsd" + redirectPage);
 		}
 		else if (referrer.contains("instructorLogin"))
 		{
@@ -50,8 +49,11 @@ public class LoginServlet extends HttpServlet
 		String user = request.getParameter("user");
 		String pwd = request.getParameter("pwd");
 		
+		String dbHash = "";
+		
 		UserValidation uV = new UserValidation();
-		String dbHash = uV.getDBHash(tableName, user);
+		if (uV.getDBHash(tableName, user) != null)
+			dbHash = uV.getDBHash(tableName, user);
 		String userHash = uV.userHash(pwd, tableName, user);
 		
 		if (dbHash.equals(userHash))
@@ -70,5 +72,4 @@ public class LoginServlet extends HttpServlet
 			rd.include(request, response);
 		}
 	}
-	
 }
