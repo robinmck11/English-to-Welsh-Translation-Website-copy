@@ -27,10 +27,12 @@
 		</dependency>
 	</dependencies>
 	<properties>
-		<jdbc.url>jdbc:mysql://localhost/sys</jdbc.url>
+		<jdbc.url>jdbc:mysql://localhost/translator</jdbc.url>
 		<jdbc.username>root</jdbc.username>
 		<jdbc.password>123</jdbc.password>
 		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<build>
 		<resources>
@@ -40,6 +42,13 @@
 			</resource>
 		</resources>
 		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
