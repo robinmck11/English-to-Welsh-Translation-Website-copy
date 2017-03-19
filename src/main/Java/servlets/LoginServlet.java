@@ -54,8 +54,6 @@ public class LoginServlet extends HttpServlet
 		String dbHash = uV.getDBHash(tableName, user);
 		String userHash = uV.userHash(pwd, tableName, user);
 		
-		System.out.println(userHash);
-		
 		if (dbHash.equals(userHash))
 		{
 			Cookie loginCookie = new Cookie("user", user);

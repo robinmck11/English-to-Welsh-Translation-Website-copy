@@ -58,7 +58,7 @@ public class AddUser
 		System.out.println("NEW SYSADMIN:");
 		System.out.print("Enter username: ");
 		String userName = in.next();
-		System.out.print("Enter password:");
+		System.out.print("Enter password: ");
 		Hash hash = new Hash(in.next(), true);
 		
 		try
