@@ -13,6 +13,10 @@ public class Queries
     private InputStream inputStream;
     private Connection conn;
 
+    /**
+     *  Class that handles queries used on the web application
+     */
+
     public Queries()
     {
         inputStream = UserValidation.class.getResourceAsStream("/database.properties");
@@ -25,5 +29,13 @@ public class Queries
         {
             e.printStackTrace();
         }
+    }
+
+
+
+
+
+    public void closeConnection() throws SQLException {
+        conn.close();
     }
 }
