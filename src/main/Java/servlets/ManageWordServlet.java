@@ -38,10 +38,27 @@ public class ManageWordServlet extends HttpServlet
 		else if (submitType.equalsIgnoreCase("Remove"))
 		{
 			String welshNoun = request.getParameter("welshNoun");
+//			try
+//			{
+//				new AddTranslation(englishNoun, welshNoun);
+//			} catch (SQLException e)
+//			{
+//				e.printStackTrace();
+//			}
 		}
 		else if (submitType.equalsIgnoreCase("Update"))
 		{
-			
+			String welshNounOriginal = request.getParameter("welshNounOriginal");
+			String welshNounNew = request.getParameter("welshNounNew");
+			String englishNounOriginal = request.getParameter("englishNounOriginal");
+			String englishNounNew = request.getParameter("englishNounNew");
+//			try
+//			{
+//				new AddTranslation(englishNoun, welshNoun);
+//			} catch (SQLException e)
+//			{
+//				e.printStackTrace();
+//			}
 		}
 		
 		request.getRequestDispatcher("/manageWords.jsp").forward(request, response);
