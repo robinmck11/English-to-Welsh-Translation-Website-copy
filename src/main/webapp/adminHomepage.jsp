@@ -9,7 +9,7 @@
     <header>
         <ul class="topnav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="adminHomepage.jsp" class="active">Admin Homepage</a></li>
+            <li><a href="AdminHomepageServlet" class="active">Admin Homepage</a></li>
             <li><a href="manageAccounts.jsp">Manage Accounts</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>

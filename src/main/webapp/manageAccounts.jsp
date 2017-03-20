@@ -11,7 +11,7 @@
     <header>
         <ul class="topnav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="adminHomepage.jsp">Admin Homepage</a></li>
+            <li><a href="AdminHomepageServlet">Admin Homepage</a></li>
             <li><a href="manageAccounts.jsp" class="active">Manage Accounts</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
