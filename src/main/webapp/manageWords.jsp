@@ -18,7 +18,7 @@
     </header>
     <div id="slide1">
         <div id="heading">
-            <form>
+            <form action="ManageWordServlet" method="post">
                 <select id="action">
                     <option>Choose Action</option>
                     <option value="add">Add Word</option>

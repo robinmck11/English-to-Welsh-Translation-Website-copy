@@ -14,10 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.DBCounts;
+
 public class StudentHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		DBCounts dbCounts = new DBCounts();
+		
 		int noTestsTaken = 0;
 		int averageScore = 0;
 		request.setAttribute("noTestsTaken", noTestsTaken);

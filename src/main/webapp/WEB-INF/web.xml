@@ -36,6 +36,16 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>ManageWordServlet</servlet-name>
+		<servlet-class>servlets.ManageWordServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ManageWordServlet</servlet-name>
+		<url-pattern>/ManageWordServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>StartTestServlet</servlet-name>
 		<servlet-class>servlets.StartTestServlet</servlet-class>
 	</servlet>

@@ -14,15 +14,12 @@ import java.sql.Statement;
 /**
  *  Retrieve the count for rows in a table
  */
-
 public class DBCounts
 {
     private InputStream inputStream;
     private Connection conn;
 
-    private String tableName;
-
-    String count;
+    private String count;
 
     public DBCounts()
     {
@@ -44,21 +41,19 @@ public class DBCounts
      * @param tableName the name of the table
      * @return the count
      */
-
-    public int getCount(String tableName, String field) throws SQLException {
-
-        Statement st = conn.createStatement();
-
-        ResultSet rs = st.executeQuery("SELECT count(" + field + ") FROM " + tableName + ";");
-
-        while(rs.next())
-        {
-            count = rs.getString(1);
-        }
-
+    public int getCount(String tableName, String field)
+    {
+		try
+		{
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("SELECT count(" + field + ") FROM " + tableName + ";");
+			
+			while(rs.next())
+				count = rs.getString(1);
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
         return Integer.parseInt(count);
-
     }
-
-
 }
