@@ -28,6 +28,6 @@ public class AdminHomepageServlet extends HttpServlet
 		request.setAttribute("noStudents", noStudents);
 		request.setAttribute("noInstructors", noInstructors);
 		
-		request.getRequestDispatcher("/WEB-INF/adminHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/adminHomepage.jsp").forward(request, response);
 	}
 }

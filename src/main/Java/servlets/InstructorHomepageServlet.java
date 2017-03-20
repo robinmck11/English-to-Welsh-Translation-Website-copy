@@ -23,6 +23,6 @@ public class InstructorHomepageServlet extends HttpServlet
 		int noWords = new DBCounts().getCount("englishNoun", "englishNoun");
 		request.setAttribute("noWords", noWords);
 		
-		request.getRequestDispatcher("/WEB-INF/instructorHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/instructorHomepage.jsp").forward(request, response);
 	}
 }

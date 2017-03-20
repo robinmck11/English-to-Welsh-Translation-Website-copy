@@ -27,6 +27,6 @@ public class StudentHomepageServlet extends HttpServlet
 		request.setAttribute("noTestsTaken", noTestsTaken);
 		request.setAttribute("averageScore", averageScore);
 		
-		request.getRequestDispatcher("/WEB-INF/studentHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/studentHomepage.jsp").forward(request, response);
 	}
 }
