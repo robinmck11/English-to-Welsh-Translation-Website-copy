@@ -14,13 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.DBCounts;
+
 public class InstructorHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int noWords = 30;
+		int noWords = new DBCounts().getCount("englishNoun", "englishNoun");
 		request.setAttribute("noWords", noWords);
 		
-		request.getRequestDispatcher("/WEB-INF/instructorHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/instructorHomepage.jsp").forward(request, response);
 	}
 }

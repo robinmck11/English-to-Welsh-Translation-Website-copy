@@ -22,7 +22,8 @@ public class AddTranslation
     private InputStream inputStream;
     private Connection conn;
 
-    public AddTranslation(String englishNoun, String welshNoun) throws SQLException {
+    public AddTranslation(String englishNoun, String welshNoun) throws SQLException
+    {
         this.englishNoun = englishNoun;
         this.welshNoun = welshNoun;
 
@@ -42,8 +43,6 @@ public class AddTranslation
         {
             conn.close();
         }
-
-
     }
 
     private void insertEnglish(String noun) throws SQLException {
