@@ -8,7 +8,6 @@
 <body>
     <header>
         <ul class="topnav">
-            <li><a href="index.html">Home</a></li>
             <li><a href="StudentHomepageServlet" class="active">Student Homepage</a></li>
             <li><a href="test.jsp">Take Test</a></li>
             <li><a href="pastTests.jsp">View Past Tests</a></li>

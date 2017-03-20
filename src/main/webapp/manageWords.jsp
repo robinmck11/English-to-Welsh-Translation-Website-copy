@@ -10,7 +10,6 @@
 <body>
     <header>
         <ul class="topnav">
-            <li><a href="index.html">Home</a></li>
             <li><a href="InstructorHomepageServlet">Instructor Homepage</a></li>
             <li><a href="manageWords.jsp" class="active">Manage Words</a></li>
             <li><a href="LogoutServlet">Logout</a></li>

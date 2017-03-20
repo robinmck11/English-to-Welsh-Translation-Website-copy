@@ -36,7 +36,6 @@
 <body>
     <header>
         <ul class="topnav">
-            <li><a href="index.html">Home</a></li>
             <li><a href="StudentHomepageServlet">Student Homepage</a></li>
             <li><a href="test.jsp" class="active">Take Test</a></li>
             <li><a href="pastTests.jsp">View Past Tests</a></li>
