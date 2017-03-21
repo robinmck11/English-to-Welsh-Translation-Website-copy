@@ -20,7 +20,7 @@ public class InstructorHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int noWords = new DBCounts().getCount("englishNoun", "englishNoun");
+		int noWords = new DBCounts().getCount("nouns", "englishNoun");
 		request.setAttribute("noWords", noWords);
 		
 		request.getRequestDispatcher("/instructorHomepage.jsp").forward(request, response);
