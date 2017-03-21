@@ -21,7 +21,7 @@ public class DropTables
     private String student = "student";
     private String sysAdmin = "sysadmin";
     private String test = "test";
-    private String translation = "translation";
+    private String nouns = "nouns";
     private String welshNoun = "welshnoun";
 
     public DropTables() throws SQLException
@@ -48,13 +48,11 @@ public class DropTables
         Statement st = conn.createStatement();
 
         try {
-            st.executeUpdate("DROP TABLE IF EXISTS " + translation);
+            st.executeUpdate("DROP TABLE IF EXISTS " + nouns);
             st.executeUpdate("DROP TABLE IF EXISTS " + test);
-            st.executeUpdate("DROP TABLE IF EXISTS " + englishNoun);
             st.executeUpdate("DROP TABLE IF EXISTS " + instructor);
             st.executeUpdate("DROP TABLE IF EXISTS " + student);
             st.executeUpdate("DROP TABLE IF EXISTS " + sysAdmin);
-            st.executeUpdate("DROP TABLE IF EXISTS " + welshNoun);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally
