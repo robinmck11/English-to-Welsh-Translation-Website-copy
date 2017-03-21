@@ -1,6 +1,6 @@
 package tests;
 
-import database.AddTranslation;
+import database.AddNouns;
 
 import java.sql.SQLException;
 
@@ -13,7 +13,7 @@ public class AddTranslationTester
     public static void main(String[] args)
     {
         try {
-            new AddTranslation("bus", "bws");
+            new AddNouns("bus", "bws");
         } catch (SQLException e) {
             e.printStackTrace();
         }

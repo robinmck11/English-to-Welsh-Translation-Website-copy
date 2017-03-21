@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.AddTranslation;
+import database.AddNouns;
 
 public class ManageWordServlet extends HttpServlet
 {
@@ -29,7 +29,7 @@ public class ManageWordServlet extends HttpServlet
 			String englishNoun = request.getParameter("englishNoun");
 			try
 			{
-				new AddTranslation(englishNoun, welshNoun);
+				new AddNouns(englishNoun, welshNoun);
 			} catch (SQLException e)
 			{
 				e.printStackTrace();
@@ -40,7 +40,7 @@ public class ManageWordServlet extends HttpServlet
 			String welshNoun = request.getParameter("welshNoun");
 //			try
 //			{
-//				new AddTranslation(englishNoun, welshNoun);
+//				new AddNouns(englishNoun, welshNoun);
 //			} catch (SQLException e)
 //			{
 //				e.printStackTrace();
@@ -54,7 +54,7 @@ public class ManageWordServlet extends HttpServlet
 			String englishNounNew = request.getParameter("englishNounNew");
 //			try
 //			{
-//				new AddTranslation(englishNoun, welshNoun);
+//				new AddNouns(englishNoun, welshNoun);
 //			} catch (SQLException e)
 //			{
 //				e.printStackTrace();

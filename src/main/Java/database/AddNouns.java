@@ -9,23 +9,23 @@ import java.sql.Statement;
 /**
  * Created by robin on 19/03/2017.
  */
-public class AddTranslation
+public class AddNouns
 {
     private String englishNoun;
     private String welshNoun;
 
-    private final String translationTable = "translation";
+    private final String nounsTable = "nouns";
 
 
     private InputStream inputStream;
     private Connection conn;
 
-    public AddTranslation(String englishNoun, String welshNoun) throws SQLException
+    public AddNouns(String englishNoun, String welshNoun) throws SQLException
     {
         this.englishNoun = englishNoun;
         this.welshNoun = welshNoun;
 
-        inputStream = AddTranslation.class.getResourceAsStream("/database.properties");
+        inputStream = AddNouns.class.getResourceAsStream("/database.properties");
 
         try
         {
@@ -46,6 +46,6 @@ public class AddTranslation
     private void addTranslation(String english, String welsh) throws SQLException {
         Statement st = conn.createStatement();
 
-        st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
+        st.executeUpdate("INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "');");
     }
 }
