@@ -22,6 +22,8 @@ public class AddTranslation
 
     public AddTranslation(String englishNoun, String welshNoun) throws SQLException
     {
+        this.englishNoun = englishNoun;
+        this.welshNoun = welshNoun;
 
         inputStream = AddTranslation.class.getResourceAsStream("/database.properties");
 
@@ -30,7 +32,7 @@ public class AddTranslation
             SimpleDataSource.init(inputStream);
             conn = SimpleDataSource.getConnection();
 
-            addRecord();
+            addTranslation(englishNoun, welshNoun);
 
         } catch (IOException | ClassNotFoundException | SQLException e)
         {
@@ -45,9 +47,5 @@ public class AddTranslation
         Statement st = conn.createStatement();
 
         st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
-    }
-
-    private void addRecord() throws SQLException {
-        addTranslation(englishNoun, welshNoun);
     }
 }
