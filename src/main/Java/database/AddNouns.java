@@ -9,7 +9,7 @@ import java.sql.Statement;
 /**
  * Created by robin on 19/03/2017.
  */
-public class AddTranslation
+public class AddNouns
 {
     private String englishNoun;
     private String welshNoun;
@@ -20,12 +20,12 @@ public class AddTranslation
     private InputStream inputStream;
     private Connection conn;
 
-    public AddTranslation(String englishNoun, String welshNoun) throws SQLException
+    public AddNouns(String englishNoun, String welshNoun) throws SQLException
     {
         this.englishNoun = englishNoun;
         this.welshNoun = welshNoun;
 
-        inputStream = AddTranslation.class.getResourceAsStream("/database.properties");
+        inputStream = AddNouns.class.getResourceAsStream("/database.properties");
 
         try
         {

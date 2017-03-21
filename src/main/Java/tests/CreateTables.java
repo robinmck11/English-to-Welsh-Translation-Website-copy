@@ -53,7 +53,7 @@ public class CreateTables
                 " FOREIGN KEY (username) REFERENCES student (username) ON UPDATE CASCADE ON DELETE CASCADE\n" +
                 ");");
 
-        st.executeUpdate("CREATE TABLE translation\n" +
+        st.executeUpdate("CREATE TABLE nouns\n" +
                 "(\n" +
                 "englishNoun VARCHAR(30) NOT NULL,\n" +
                 " welshNoun VARCHAR(30) NOT NULL,\n" +
