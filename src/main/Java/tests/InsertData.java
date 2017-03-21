@@ -4,7 +4,6 @@ import database.AddUser;
 import database.InsertGrade;
 
 import java.sql.SQLException;
-import java.util.Scanner;
 
 /**
  * Created by robin on 19/03/2017.
