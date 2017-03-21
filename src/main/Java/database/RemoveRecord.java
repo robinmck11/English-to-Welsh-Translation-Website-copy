@@ -37,14 +37,13 @@ public class RemoveRecord
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public void closeConnection()
-    {
-        try {
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 }
