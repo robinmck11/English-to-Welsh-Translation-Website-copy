@@ -31,11 +31,4 @@ public class Queries
         }
     }
 
-
-
-
-
-    public void closeConnection() throws SQLException {
-        conn.close();
-    }
 }
