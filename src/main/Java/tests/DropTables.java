@@ -26,7 +26,7 @@ public class DropTables
 
     public DropTables() throws SQLException
     {
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+        inputStream = DropTables.class.getResourceAsStream("/database.properties");
 
         try
         {

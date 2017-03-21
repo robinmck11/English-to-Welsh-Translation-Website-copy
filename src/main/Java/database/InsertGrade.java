@@ -1,7 +1,5 @@
 package database;
 
-import tests.HSQLTester;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -40,7 +38,7 @@ public class InsertGrade
         dateGained = sDF1.format(date);
         timeGained = sDF2.format(date);
 
-        inputStream = HSQLTester.class.getResourceAsStream("/database.properties");
+        inputStream = InsertGrade.class.getResourceAsStream("/database.properties");
 
         try
         {

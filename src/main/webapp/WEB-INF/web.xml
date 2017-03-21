@@ -1,64 +1,87 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+	"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	"http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <!--<web-app>-->
-  <!--<display-name>Archetype Created Web Application</display-name>-->
+<!--<display-name>Archetype Created Web Application</display-name>-->
 <!--</web-app>-->
 
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>ServletCookieExample</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 id="WebApp_ID" version="3.0">
+	<display-name>ServletCookieExample</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>servlets.LoginServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>servlets.LoginServlet</servlet-class>
+	</servlet>
 
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
 
-  <servlet>
-    <servlet-name>StartTestServlet</servlet-name>
-    <servlet-class>servlets.StartTestServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>servlets.LogoutServlet</servlet-class>
+	</servlet>
 
-  <servlet-mapping>
-    <servlet-name>StartTestServlet</servlet-name>
-    <url-pattern>/StartTestServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
 
-  <servlet>
-    <servlet-name>AdminHomepageServlet</servlet-name>
-    <servlet-class>servlets.AdminHomepageServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>ManageWordServlet</servlet-name>
+		<servlet-class>servlets.ManageWordServlet</servlet-class>
+	</servlet>
 
-  <servlet-mapping>
-    <servlet-name>AdminHomepageServlet</servlet-name>
-    <url-pattern>/AdminHomepageServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManageWordServlet</servlet-name>
+		<url-pattern>/ManageWordServlet</url-pattern>
+	</servlet-mapping>
 
-  <servlet>
-    <servlet-name>InstructorHomepageServlet</servlet-name>
-    <servlet-class>servlets.InstructorHomepageServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>StartTestServlet</servlet-name>
+		<servlet-class>servlets.StartTestServlet</servlet-class>
+	</servlet>
 
-  <servlet-mapping>
-    <servlet-name>InstructorHomepageServlet</servlet-name>
-    <url-pattern>/InstructorHomepageServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StartTestServlet</servlet-name>
+		<url-pattern>/StartTestServlet</url-pattern>
+	</servlet-mapping>
 
-  <servlet>
-    <servlet-name>StudentHomepageServlet</servlet-name>
-    <servlet-class>servlets.StudentHomepageServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>AdminHomepageServlet</servlet-name>
+		<servlet-class>servlets.AdminHomepageServlet</servlet-class>
+	</servlet>
 
-  <servlet-mapping>
-    <servlet-name>StudentHomepageServlet</servlet-name>
-    <url-pattern>/StudentHomepageServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminHomepageServlet</servlet-name>
+		<url-pattern>/AdminHomepageServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InstructorHomepageServlet</servlet-name>
+		<servlet-class>servlets.InstructorHomepageServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InstructorHomepageServlet</servlet-name>
+		<url-pattern>/InstructorHomepageServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StudentHomepageServlet</servlet-name>
+		<servlet-class>servlets.StudentHomepageServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StudentHomepageServlet</servlet-name>
+		<url-pattern>/StudentHomepageServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

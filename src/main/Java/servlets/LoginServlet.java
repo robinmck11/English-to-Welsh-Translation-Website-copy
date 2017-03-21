@@ -66,10 +66,19 @@ public class LoginServlet extends HttpServlet
 		}
 		else
 		{
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+			response.setContentType("text/html");
 			PrintWriter out = response.getWriter();
-			out.println("<font color=red>Either user name or password is wrong.</font>");
-			rd.include(request, response);
+			
+			out.println("<html><body>");
+			out.println("<img src=\"meme.jpg\" style=\"display: block;margin: 0 auto;\">");
+			out.println("</html></body>");
+			
+			out.close();
+			
+//			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+//			PrintWriter out = response.getWriter();
+//			out.println("<font color=red>Either user name or password is wrong.</font>");
+//			rd.include(request, response);
 		}
 	}
 }

@@ -14,15 +14,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.DBCounts;
+
 public class AdminHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int noStudents = 2;
-		int noInstructors = 1;
+		DBCounts dbCounts = new DBCounts();
+		
+		int noStudents = dbCounts.getCount("student", "username");
+		int noInstructors = dbCounts.getCount("instructor", "username");
+		
 		request.setAttribute("noStudents", noStudents);
 		request.setAttribute("noInstructors", noInstructors);
 		
-		request.getRequestDispatcher("/WEB-INF/adminHomepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/adminHomepage.jsp").forward(request, response);
 	}
 }
