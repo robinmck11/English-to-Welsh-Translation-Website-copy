@@ -13,6 +13,5 @@ public class RemoveRecordTester
         RemoveRecord rR = new RemoveRecord();
 
         rR.removeRecord("student","username", "student2");
-        rR.closeConnection();
     }
 }

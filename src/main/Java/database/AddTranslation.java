@@ -14,8 +14,6 @@ public class AddTranslation
     private String englishNoun;
     private String welshNoun;
 
-    private final String englishTable = "englishNoun";
-    private final String welshTable = "welshNoun";
     private final String translationTable = "translation";
 
 
@@ -24,8 +22,6 @@ public class AddTranslation
 
     public AddTranslation(String englishNoun, String welshNoun) throws SQLException
     {
-        this.englishNoun = englishNoun;
-        this.welshNoun = welshNoun;
 
         inputStream = AddTranslation.class.getResourceAsStream("/database.properties");
 
@@ -34,7 +30,7 @@ public class AddTranslation
             SimpleDataSource.init(inputStream);
             conn = SimpleDataSource.getConnection();
 
-            addRecords();
+            addRecord();
 
         } catch (IOException | ClassNotFoundException | SQLException e)
         {
@@ -45,41 +41,13 @@ public class AddTranslation
         }
     }
 
-    private void insertEnglish(String noun) throws SQLException {
-        Statement st = conn.createStatement();
-
-        try
-        {
-            st.executeUpdate("INSERT INTO " + englishTable + " VALUES ('" + noun + "');");
-        }
-        finally
-        {
-            st.close();
-        }
-    }
-
-    private void insertWelsh(String noun) throws SQLException
-    {
-        Statement st = conn.createStatement();
-        try
-        {
-            st.executeUpdate("INSERT INTO " + welshTable + " VALUES ('" + noun + "');");
-        }
-        finally
-        {
-            st.close();
-        }
-    }
-
     private void addTranslation(String english, String welsh) throws SQLException {
         Statement st = conn.createStatement();
 
         st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
     }
 
-    private void addRecords() throws SQLException {
-        insertEnglish(englishNoun);
-        insertWelsh(welshNoun);
+    private void addRecord() throws SQLException {
         addTranslation(englishNoun, welshNoun);
     }
 }

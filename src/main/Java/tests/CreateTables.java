@@ -53,26 +53,12 @@ public class CreateTables
                 " FOREIGN KEY (username) REFERENCES student (username) ON UPDATE CASCADE ON DELETE CASCADE\n" +
                 ");");
 
-        st.executeUpdate("CREATE TABLE englishNoun\n" +
-                "(\n" +
-                "englishNoun VARCHAR(30) NOT NULL,\n" +
-                " PRIMARY KEY (englishNoun)\n" +
-                ");");
-
-        st.executeUpdate("CREATE TABLE welshNoun\n" +
-                "(\n" +
-                " welshNoun VARCHAR(30) NOT NULL,\n" +
-                " PRIMARY KEY (welshNoun)\n" +
-                ");");
-
         st.executeUpdate("CREATE TABLE translation\n" +
                 "(\n" +
                 "englishNoun VARCHAR(30) NOT NULL,\n" +
                 " welshNoun VARCHAR(30) NOT NULL,\n" +
-                " PRIMARY KEY (englishNoun, welshNoun),\n" +
-                " FOREIGN KEY (englishNoun) REFERENCES englishNoun (englishNoun) ON UPDATE CASCADE ON DELETE CASCADE,\n" +
-                " FOREIGN KEY (welshNoun) REFERENCES welshNoun (welshNoun) ON UPDATE CASCADE ON DELETE CASCADE\n" +
-                ");");
+                " PRIMARY KEY (englishNoun, welshNoun)\n" +
+                " );");
 
         st.executeUpdate("CREATE TABLE instructor\n" +
                 "(\n" +
