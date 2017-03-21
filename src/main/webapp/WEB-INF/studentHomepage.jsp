@@ -6,6 +6,24 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
 </head>
 <body>
+<%
+    String userName = null;
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null)
+    {
+        for (Cookie cookie : cookies)
+        {
+            if (cookie.getName().equals("user"))
+            {
+                userName = cookie.getValue();
+            }
+        }
+    }
+    if (userName == null)
+    {
+        response.sendRedirect("studentLogin.html");
+    }
+%>
     <header>
         <ul class="topnav">
             <li><a href="../index.html">Home</a></li>
