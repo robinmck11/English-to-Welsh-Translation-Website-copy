@@ -14,7 +14,7 @@ public class AddNouns
     private String englishNoun;
     private String welshNoun;
 
-    private final String translationTable = "translation";
+    private final String nounsTable = "nouns";
 
 
     private InputStream inputStream;
@@ -46,6 +46,6 @@ public class AddNouns
     private void addTranslation(String english, String welsh) throws SQLException {
         Statement st = conn.createStatement();
 
-        st.executeUpdate("INSERT INTO " + translationTable + " VALUES ('" + english + "', '" + welsh + "');");
+        st.executeUpdate("INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "');");
     }
 }
