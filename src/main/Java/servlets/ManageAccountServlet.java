@@ -21,9 +21,9 @@ public class ManageAccountServlet extends HttpServlet
 {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String submitType = request.getParameter("action");
+		String submitType = request.getParameter("submit");
 		
-		if (submitType.equalsIgnoreCase("addStudent"))
+		if (submitType.equalsIgnoreCase("AddStudent"))
 		{
 			String studentName = request.getParameter("studentName");
 			String studentUsername = request.getParameter("studentUsername");
@@ -35,7 +35,7 @@ public class ManageAccountServlet extends HttpServlet
 				e.printStackTrace();
 			}
 		}
-		else if (submitType.equalsIgnoreCase("removeStudent"))
+		else if (submitType.equalsIgnoreCase("RemoveStudent"))
 		{
 			String studentUsername = request.getParameter("studentUsername");
 //			try
@@ -46,7 +46,7 @@ public class ManageAccountServlet extends HttpServlet
 //				e.printStackTrace();
 //			}
 		}
-		else if (submitType.equalsIgnoreCase("addInstructor"))
+		else if (submitType.equalsIgnoreCase("AddInstructor"))
 		{
 			String instructorName = request.getParameter("instructorName");
 			String instructorUsername = request.getParameter("instructorUsername");
@@ -58,7 +58,7 @@ public class ManageAccountServlet extends HttpServlet
 				e.printStackTrace();
 			}
 		}
-		else if (submitType.equalsIgnoreCase("removeInstructor"))
+		else if (submitType.equalsIgnoreCase("RemoveInstructor"))
 		{
 			String instructorUsername = request.getParameter("instructorUsername");
 //			try

@@ -17,7 +17,7 @@
     </header>
     <div id="slide1">
         <div id="heading">
-            <form>
+            <form action="ManageAccountServlet" method="post">
                 <select id="action">
                     <option>Choose Action</option>
                     <option value="addStudent">Add Student</option>
@@ -27,25 +27,25 @@
                 </select>
 
                 <div id="addStudent" style="display:none;">
-                    <p><input type="text" name="studentName" placeholder="Student Name"></p>
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="Add"></p>
+                    <p><input type="text" name="" placeholder="Password"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="AddStudent"></p>
                 </div>
 
                 <div id="removeStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Student Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="Remove"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="RemoveStudent"></p>
                 </div>
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorName" placeholder="Instructor Name"></p>
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="Add"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="AddInstructor"></p>
                 </div>
 
                 <div id="removeInstructor" style="display:none;">
                     <p><input type="text" name="instructorUsername" placeholder="Instructor Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="Remove"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="RemoveInstructor"></p>
                 </div>
             </form>
         </div>
