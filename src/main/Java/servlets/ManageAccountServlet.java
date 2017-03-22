@@ -23,7 +23,7 @@ public class ManageAccountServlet extends HttpServlet
 	{
 		String submitType = request.getParameter("submit");
 		
-		if (submitType.equalsIgnoreCase("AddStudent"))
+		if (submitType.equalsIgnoreCase("Add Student"))
 		{
 			String studentName = request.getParameter("studentName");
 			String studentUsername = request.getParameter("studentUsername");
@@ -35,7 +35,7 @@ public class ManageAccountServlet extends HttpServlet
 				e.printStackTrace();
 			}
 		}
-		else if (submitType.equalsIgnoreCase("RemoveStudent"))
+		else if (submitType.equalsIgnoreCase("Remove Student"))
 		{
 			String studentUsername = request.getParameter("studentUsername");
 //			try
@@ -46,7 +46,7 @@ public class ManageAccountServlet extends HttpServlet
 //				e.printStackTrace();
 //			}
 		}
-		else if (submitType.equalsIgnoreCase("AddInstructor"))
+		else if (submitType.equalsIgnoreCase("Add Instructor"))
 		{
 			String instructorName = request.getParameter("instructorName");
 			String instructorUsername = request.getParameter("instructorUsername");
@@ -58,7 +58,7 @@ public class ManageAccountServlet extends HttpServlet
 				e.printStackTrace();
 			}
 		}
-		else if (submitType.equalsIgnoreCase("RemoveInstructor"))
+		else if (submitType.equalsIgnoreCase("Remove Instructor"))
 		{
 			String instructorUsername = request.getParameter("instructorUsername");
 //			try
@@ -70,6 +70,6 @@ public class ManageAccountServlet extends HttpServlet
 //			}
 		}
 		
-		request.getRequestDispatcher("/manageWords.jsp").forward(request, response);
+		request.getRequestDispatcher("/manageAccounts.jsp").forward(request, response);
 	}
 }

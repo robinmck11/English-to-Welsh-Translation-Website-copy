@@ -29,23 +29,23 @@
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
                     <p><input type="text" name="" placeholder="Password"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="AddStudent"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Add Student"></p>
                 </div>
 
                 <div id="removeStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Student Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="RemoveStudent"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Remove Student"></p>
                 </div>
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorName" placeholder="Instructor Name"></p>
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="AddInstructor"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Add Instructor"></p>
                 </div>
 
                 <div id="removeInstructor" style="display:none;">
                     <p><input type="text" name="instructorUsername" placeholder="Instructor Username"></p>
-                    <p style="text-align: center"><input type="submit" name="submit" value="RemoveInstructor"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Remove Instructor"></p>
                 </div>
             </form>
         </div>
