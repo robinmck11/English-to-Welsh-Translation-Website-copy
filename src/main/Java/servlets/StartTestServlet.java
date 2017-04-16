@@ -33,7 +33,7 @@ public class StartTestServlet extends HttpServlet
 		
 		for (int i = 0; i < 20; i++)
 		{
-			int randomIndex = random.nextInt(dbCounts.getCount("nouns", "welshNouns") + 1);
+			int randomIndex = random.nextInt(dbCounts.getCount("nouns", "welshNoun") + 1);
 			
 			if (!checkIfDuplicate(randomIndex))
 			{

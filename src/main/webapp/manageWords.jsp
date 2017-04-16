@@ -8,6 +8,24 @@
     <script>window.onload=function(){$("#action").change(function(){switch(selection=$(this).val(),selection){case"add":$("#add").show(),$("#remove").hide(),$("#update").hide();break;case"remove":$("#add").hide(),$("#remove").show(),$("#update").hide();break;case"update":$("#add").hide(),$("#remove").hide(),$("#update").show();break;default:$("#add").hide(),$("#remove").hide(),$("#update").hide()}})};</script>
 </head>
 <body>
+<%
+    String userName = null;
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null)
+    {
+        for (Cookie cookie : cookies)
+        {
+            if (cookie.getName().equals("user"))
+            {
+                userName = cookie.getValue();
+            }
+        }
+    }
+    if (userName == null)
+    {
+        response.sendRedirect("instructorLogin.html");
+    }
+%>
     <header>
         <ul class="topnav">
             <li><a href="InstructorHomepageServlet">Instructor Homepage</a></li>

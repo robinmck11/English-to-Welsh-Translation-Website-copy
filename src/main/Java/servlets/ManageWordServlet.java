@@ -27,9 +27,10 @@ public class ManageWordServlet extends HttpServlet
 		{
 			String welshNoun = request.getParameter("welshNoun");
 			String englishNoun = request.getParameter("englishNoun");
+			String gender = request.getParameter("gender");
 			try
 			{
-				new AddNouns(englishNoun, welshNoun);
+				new AddNouns(englishNoun, welshNoun, gender);
 			} catch (SQLException e)
 			{
 				e.printStackTrace();

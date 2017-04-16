@@ -12,11 +12,11 @@ public class AddTranslationTester
 {
     public static void main(String[] args)
     {
-        try {
-            new AddNouns("bus", "bws");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            new AddNouns("bus", "bws", "f");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
 

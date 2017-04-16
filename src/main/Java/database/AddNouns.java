@@ -11,41 +11,34 @@ import java.sql.Statement;
  */
 public class AddNouns
 {
-    private String englishNoun;
-    private String welshNoun;
-
-    private final String nounsTable = "nouns";
-
-
-    private InputStream inputStream;
-    private Connection conn;
-
-    public AddNouns(String englishNoun, String welshNoun) throws SQLException
-    {
-        this.englishNoun = englishNoun;
-        this.welshNoun = welshNoun;
-
-        inputStream = AddNouns.class.getResourceAsStream("/database.properties");
-
-        try
-        {
-            SimpleDataSource.init(inputStream);
-            conn = SimpleDataSource.getConnection();
-
-            addTranslation(englishNoun, welshNoun);
-
-        } catch (IOException | ClassNotFoundException | SQLException e)
-        {
-            e.printStackTrace();
-        } finally
-        {
-            conn.close();
-        }
-    }
-
-    private void addTranslation(String english, String welsh) throws SQLException {
-        Statement st = conn.createStatement();
-
-        st.executeUpdate("INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "');");
-    }
+	private final String nounsTable = "nouns";
+	
+	private InputStream inputStream;
+	private Connection conn;
+	
+	public AddNouns(String englishNoun, String welshNoun, String gender) throws SQLException
+	{
+		inputStream = AddNouns.class.getResourceAsStream("/database.properties");
+		
+		try
+		{
+			SimpleDataSource.init(inputStream);
+			conn = SimpleDataSource.getConnection();
+			
+			addTranslation(englishNoun, welshNoun, gender);
+		} catch (IOException | ClassNotFoundException | SQLException e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			conn.close();
+		}
+	}
+	
+	public void addTranslation(String english, String welsh, String gender) throws SQLException
+	{
+		Statement st = conn.createStatement();
+		
+		st.executeUpdate("INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "', '" + gender + "');");
+	}
 }

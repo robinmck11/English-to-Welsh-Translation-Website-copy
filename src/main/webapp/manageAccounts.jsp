@@ -8,6 +8,24 @@
     <script>window.onload=function(){$("#action").change(function(){switch(selection=$(this).val(),selection){case"addStudent":$("#addStudent").show(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").hide();break;case"removeStudent":$("#addStudent").hide(),$("#removeStudent").show(),$("#addInstructor").hide(),$("#removeInstructor").hide();break;case"addInstructor":$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").show(),$("#removeInstructor").hide();break;case"removeInstructor":$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").show();break;default:$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").hide()}})};</script>
 </head>
 <body>
+<%
+    String userName = null;
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null)
+    {
+        for (Cookie cookie : cookies)
+        {
+            if (cookie.getName().equals("user"))
+            {
+                userName = cookie.getValue();
+            }
+        }
+    }
+    if (userName == null)
+    {
+        response.sendRedirect("instructorLogin.html");
+    }
+%>
     <header>
         <ul class="topnav">
             <li><a href="AdminHomepageServlet">Admin Homepage</a></li>

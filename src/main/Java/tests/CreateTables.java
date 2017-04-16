@@ -57,6 +57,7 @@ public class CreateTables
                 "(\n" +
                 "englishNoun VARCHAR(30) NOT NULL,\n" +
                 " welshNoun VARCHAR(30) NOT NULL,\n" +
+                " gender VARCHAR(1) NOT NULL,\n" +
                 " PRIMARY KEY (englishNoun, welshNoun)\n" +
                 " );");
 
