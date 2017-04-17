@@ -60,7 +60,6 @@ public class InsertData
 		try
 		{
 			AddNouns noun = new AddNouns("flag", "baner", "f");
-//			noun = new AddNouns("flag", "baner", "f");
 			noun = new AddNouns("kinship", "ach", "f");
 			noun = new AddNouns("fruits", "aeron", "f");
 			noun = new AddNouns("raspberries", "afan", "f");
