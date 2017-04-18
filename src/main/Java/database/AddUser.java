@@ -10,6 +10,7 @@ package database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -48,19 +49,20 @@ public class AddUser
 	
 	public void addSysAdmin() throws SQLException
 	{
-		
-		Statement st = conn.createStatement();
-		
+
 		Scanner in = new Scanner(System.in);
 
 		System.out.print("Enter System Administrator username: ");
 		String userName = in.next();
 		System.out.print("Enter password: ");
 		Hash hash = new Hash(in.next(), true);
-		
+
+		String statement = "INSERT INTO sysadmin VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');";
+		PreparedStatement st = conn.prepareStatement(statement);
+
 		try
 		{
-			st.executeUpdate("INSERT INTO sysadmin VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+			st.executeUpdate();
 		} finally
 		{
 			st.close();
@@ -78,13 +80,15 @@ public class AddUser
 	
 	public void addInstructor(String userName, String password) throws SQLException
 	{
-		Statement st = conn.createStatement();
-		
 		Hash hash = new Hash(password, true);
-		
+
+		String statement = "INSERT INTO instructor VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');";
+		PreparedStatement st = conn.prepareStatement(statement);
+
+
 		try
 		{
-			st.executeUpdate("INSERT INTO instructor VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+			st.executeUpdate();
 		} finally
 		{
 			st.close();
@@ -101,14 +105,14 @@ public class AddUser
 	
 	public void addStudent(String userName, String password) throws SQLException
 	{
-		Statement st = conn.createStatement();
-		
 		Hash hash = new Hash(password, true);
 
+		String statement = "INSERT INTO student VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');";
+		PreparedStatement st = conn.prepareStatement(statement);
 		
 		try
 		{
-			st.executeUpdate("INSERT INTO student VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');");
+			st.executeUpdate();
 		} catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e)
 		{
 			// HANDLE THIS GRACEFULLY - Prompt user to choose another username -
