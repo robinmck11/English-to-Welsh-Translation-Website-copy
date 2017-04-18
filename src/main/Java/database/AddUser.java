@@ -57,7 +57,7 @@ public class AddUser
 		System.out.print("Enter password: ");
 		Hash hash = new Hash(in.next(), true);
 
-		String statement = "INSERT INTO sysadmin VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');";
+		String statement = "INSERT INTO sysAdmin VALUES('" + userName + "', " + "'" + hash.getSalt() + "', " + "'" + hash.getHashString() + "');";
 		PreparedStatement st = conn.prepareStatement(statement);
 
 		try
