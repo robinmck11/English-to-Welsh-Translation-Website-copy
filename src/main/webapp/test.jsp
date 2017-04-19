@@ -143,7 +143,7 @@
             <div id="add">
                 <p id="question"></p>
                 <p><input id="answer" type="text" name="welshNoun" placeholder="Answer"></p>
-                <p style="text-align: center"><input type="submit" id="code" onclick="nextQuestion();" name="submit" value="Next"></p>
+                <p style="text-align: center"><input type="submit" id="nextQuestionButton" onclick="nextQuestion();" name="submit" value="Next"></p>
                 <p style="text-align: center"><input type="submit" id="lastQuestion" onclick="nextQuestion();" name="submit" value="Next" style="display: none;"></p>
             </div>
         </div>
