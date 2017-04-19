@@ -34,9 +34,19 @@ public class UpdateNouns
         }
     }
 
+    /**
+     * Update a noun in the nouns table
+     * @param oldEng the old english word to update
+     * @param oldWel the old welsh word to update
+     * @param newEng the new english word
+     * @param newWel the new welsh word
+     */
+
     public void updateNouns(String oldEng, String oldWel, String newEng, String newWel)
     {
         try {
+
+            // Might aswell leave this as statement
 
             Statement st = conn.createStatement();
 
