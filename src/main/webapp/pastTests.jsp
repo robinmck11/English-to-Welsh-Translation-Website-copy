@@ -33,7 +33,7 @@
         </ul>
     </header>
 
-    <div id="slide1">
+    <div>
         <div id="heading">
             <h2>View Past Tests</h2>
         </div>

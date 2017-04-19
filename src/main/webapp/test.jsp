@@ -13,8 +13,6 @@
             })
         });
     </script>
-
-    <%--i end up with stray commers at the end of the arrays--%>
     <script>
         var ans = [];
         var nouns = [<%
@@ -133,11 +131,11 @@
         </ul>
     </header>
 
-    <div id="slide1">
+    <div>
         <div id="heading">
             <form>
-                <h1><p style="text-align: center"><input style="background: none; border: none; color: #000000; font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: lighter; cursor: pointer; text-align: center"
-                        id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1>
+                <h1 style="text-align: center"><input style="background: none; border: none; color: #000000; font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: lighter; cursor: pointer; text-align: center"
+                        id="start" onclick="startTest()" name="submit" value="Start Test"></h1>
             </form>
 
             <div id="testForm" style="display: none">
@@ -149,7 +147,6 @@
                          aria-valuemin="0" aria-valuemax="100" style="width:0">
                     </div>
                 </div>
-                </p>
 
                 <br>
 
