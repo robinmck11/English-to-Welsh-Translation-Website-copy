@@ -2,10 +2,7 @@ package database;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Created by robin on 18/03/2017.
@@ -50,8 +47,8 @@ public class UserValidation
     private String getDBSalt(String tableName, String userName)
     {
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT salt FROM " + tableName + " WHERE username = '" + userName + "';");
+            PreparedStatement st = conn.prepareStatement("SELECT salt FROM " + tableName + " WHERE username = '" + userName + "';");
+            ResultSet rs = st.executeQuery();
 
             while (rs.next()){
                 dbSalt = rs.getString(1);
@@ -73,8 +70,8 @@ public class UserValidation
     public String getDBHash(String tableName, String userName)
     {
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT hash FROM " + tableName + " WHERE username = '" + userName + "';");
+            PreparedStatement st = conn.prepareStatement("SELECT hash FROM " + tableName + " WHERE username = '" + userName + "';");
+            ResultSet rs = st.executeQuery();
 
             while (rs.next()){
                 dbHash = rs.getString(1);
@@ -98,5 +95,20 @@ public class UserValidation
     {
         Hash userHash = new Hash(getDBSalt(tableName, userName) + pass, false);
         return userHash.getHashString();
+    }
+
+    /**
+     * Close connection to the database
+     */
+
+    // Other methods won't close connection because both the salt and the hash need to be accessed using the same object.
+
+    public void closeConnection()
+    {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
