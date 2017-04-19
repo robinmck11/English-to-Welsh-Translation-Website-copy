@@ -3,6 +3,7 @@ package database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -55,10 +56,18 @@ public class InsertGrade
     public void insertGrade()
     {
         try {
-            Statement st = conn.createStatement();
-            st.executeUpdate("INSERT INTO test VALUES('" + userName + "'," + grade + "," + "'" + dateGained + "'," + "'" + timeGained + "');");
+            PreparedStatement st = conn.prepareStatement("INSERT INTO test VALUES('" + userName + "'," + grade + "," + "'" + dateGained + "'," + "'" + timeGained + "');");
+            st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally
+        {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

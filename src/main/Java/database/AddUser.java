@@ -113,9 +113,9 @@ public class AddUser
 		try
 		{
 			st.executeUpdate();
+
 		} catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e)
 		{
-			// HANDLE THIS GRACEFULLY - Prompt user to choose another username -
 			System.out.println("USERNAME ALREADY EXISTS!!");
 		} finally
 		{
