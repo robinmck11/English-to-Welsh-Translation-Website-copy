@@ -54,7 +54,7 @@
             else
                 question = "What is the Welsh noun for the English word for " + english + "?";
             document.getElementById("question").innerHTML = question;
-            ans = ans[ans, ran];
+            ans = [ans, ran];
             window.alert(ans);
         }
 
