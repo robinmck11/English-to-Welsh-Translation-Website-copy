@@ -10,16 +10,24 @@ package servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FinishTestServlet
+import database.InsertGrade;
+
+public class FinishTestServlet extends HttpServlet
 {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int noCorrectAnswers = Integer.parseInt(request.getParameter("noCorrectAnswers"));
-		int noIncorrectAnswers = 20 - noCorrectAnswers;
+		int grade = 0;
+		try
+		{
+			grade = Integer.parseInt(request.getParameter("scoreVar"));
+		} catch (Exception e) {}
 		
+		InsertGrade insertGrade = new InsertGrade(grade, "student1");
 		
+		request.getRequestDispatcher("/pastTests.jsp").forward(request, response);
 	}
 }
