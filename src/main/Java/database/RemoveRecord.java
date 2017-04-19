@@ -3,6 +3,7 @@ package database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -17,7 +18,7 @@ public class RemoveRecord
 
     public RemoveRecord()
     {
-        inputStream = AddUser.class.getResourceAsStream("/database.properties");
+        inputStream = RemoveRecord.class.getResourceAsStream("/database.properties");
 
         try
         {
@@ -32,8 +33,8 @@ public class RemoveRecord
 
     public void removeRecord(String tableName, String field, String value){
         try {
-            Statement st = conn.createStatement();
-            st.executeUpdate("DELETE FROM " + tableName + " WHERE " + field + " = '" + value + "'");
+            PreparedStatement st = conn.prepareStatement("DELETE FROM " + tableName + " WHERE " + field + " = '" + value + "'");
+            st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
