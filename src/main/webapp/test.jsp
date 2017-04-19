@@ -13,14 +13,21 @@
             })
         });
     </script>
+
     <script>
-        function startTest() {
-            $("#testForm").show();
-            $("#start").hide();
+        var ans = [];
+        var nouns = [<%
+            String[][] array = (String[][])session.getAttribute("nouns");
+            for (int i = 0; i < array.length; i++)
+            {
+              	for (int j = 0; j < array[0].length; j++)
+                {
+                %>"<%= array[i][j] %>", <%
+            }
         }
-    </script>
-    <script>
+        %> ];
         function nextQuestion(answer) {
+            ans = [ans, document.getElementById('answer').value];
             var qty = document.getElementById('qty').value;
             var new_qty = parseInt(qty, 10) + 1;
 
@@ -31,27 +38,14 @@
 
             var ran = Math.floor(Math.random() * 3);
             var question;
-            var nouns = [];
 
-            <%
-            String[][] array = (String[][])session.getAttribute("nouns");
-            for (int i = 0; i < array.length; i++)
-            {
-            %>
-            nouns[<%= i %>] = [];
-            <%
-              	for (int j = 0; j < array[0].length; j++)
-                {
-            %>
-            nouns[<%= i %>][<%= j %>]  = "<%= array[i][j] %>";
-            <%
-                }
-            }
-            %>
 
-            var english = nouns[qty][0];
-            var welsh = nouns[qty][1];
-            var gender = nouns[qty][2];
+
+
+
+            var english = nouns[qty*3];
+            var welsh = nouns[qty*3+1];
+            var gender = nouns[qty*3+2];
 
             if (ran === 0)
                 question = "What is the gender of the Welsh noun " + welsh + "?";
@@ -60,8 +54,29 @@
             else
                 question = "What is the Welsh noun for the English word for " + english + "?";
             document.getElementById("question").innerHTML = question;
+            ans = ans[ans, ran];
+            window.alert(ans);
         }
-        window.onload = nextQuestion;
+
+        function startTest() {
+            var ran = Math.floor(Math.random() * 3);
+            var question;
+            $("#testForm").show();
+            $("#start").hide()
+
+            var english = nouns[0];
+            var welsh = nouns[1];
+            var gender = nouns[2];
+
+            if (ran === 0)
+                question = "What is the gender of the Welsh noun " + welsh + "?";
+            else if (ran === 1)
+                question = "What is the meaning of the Welsh noun " + welsh + "?";
+            else
+                question = "What is the Welsh noun for the English word for " + english + "?";
+            document.getElementById("question").innerHTML = question;
+            ans = [ran]
+        }
     </script>
 </head>
 <body>
@@ -93,7 +108,7 @@
 
                 <div id="add">
                     <p id="question"></p>
-                    <p><input type="text" name="welshNoun" placeholder="Answer"></p>
+                    <p><input id ="answer" type="text" name="welshNoun" placeholder="Answer"></p>
                     <p style="text-align: center"><input type="submit" id="code" onclick="nextQuestion();" name="submit" value="Next"></p>
                 </div>
             </div>
