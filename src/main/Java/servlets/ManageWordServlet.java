@@ -27,7 +27,12 @@ public class ManageWordServlet extends HttpServlet
 		{
 			String welshNoun = request.getParameter("welshNoun");
 			String englishNoun = request.getParameter("englishNoun");
-			String gender = request.getParameter("gender");
+
+			// No input field for gender. Added a placeholder to test adding nouns.
+
+			//String gender = request.getParameter("gender");
+			String gender = "f";
+
 			try
 			{
 				new AddNouns(englishNoun, welshNoun, gender);

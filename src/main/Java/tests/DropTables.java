@@ -19,7 +19,7 @@ public class DropTables
     private String englishNoun = "englishnoun";
     private String instructor = "instructor";
     private String student = "student";
-    private String sysAdmin = "sysadmin";
+    private String sysAdmin = "sysAdmin";
     private String test = "test";
     private String nouns = "nouns";
     private String welshNoun = "welshnoun";

@@ -3,6 +3,7 @@ package database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -37,8 +38,9 @@ public class AddNouns
 	
 	public void addTranslation(String english, String welsh, String gender) throws SQLException
 	{
-		Statement st = conn.createStatement();
-		
-		st.executeUpdate("INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "', '" + gender + "');");
+		String statement = "INSERT INTO " + nounsTable + " VALUES ('" + english + "', '" + welsh + "', '" + gender + "');";
+		PreparedStatement preparedStatement = conn.prepareStatement(statement);
+		preparedStatement.executeUpdate();
+
 	}
 }
