@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         jQuery(function ($) {
-            $('#code').click(function () {
+            $('#nextQuestionButton').click(function () {
                 var val = ((document.getElementById('qty').value) * 5) + '%';
                 $('.progress-bar').width(val).text(val)
             })
@@ -61,6 +61,9 @@
                 ans.push(ran);
             }else
             {
+                $("#lastQuestion").show();
+                $("#nextQuestionButton").hide();
+
                 score = 0;
                 for(i=0; i <20; i++)
                 {
@@ -140,8 +143,8 @@
             <div id="add">
                 <p id="question"></p>
                 <p><input id="answer" type="text" name="welshNoun" placeholder="Answer"></p>
-                <p style="text-align: center"><input type="submit" id="code" onclick="nextQuestion();" name="submit"
-                                                     value="Next"></p>
+                <p style="text-align: center"><input type="submit" id="code" onclick="nextQuestion();" name="submit" value="Next"></p>
+                <p style="text-align: center"><input type="submit" id="lastQuestion" onclick="nextQuestion();" name="submit" value="Next" style="display: none;"></p>
             </div>
         </div>
     </div>
