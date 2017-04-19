@@ -51,6 +51,14 @@ public class DBCounts
 		{
 			e.printStackTrace();
 		}
+		finally
+        {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return Integer.parseInt(count);
     }
 
@@ -76,6 +84,14 @@ public class DBCounts
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally
+        {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         return userTestCount;
@@ -105,8 +121,14 @@ public class DBCounts
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        finally
+        {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return avgGrade;
-
     }
 }
