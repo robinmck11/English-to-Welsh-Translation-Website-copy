@@ -35,6 +35,12 @@
             var qty = document.getElementById('qty').value;
             if (qty != 20)
             {
+                if (qty == 19)
+                {
+                    $("#lastQuestion").show();
+                    $("#nextQuestionButton").hide();
+                }
+
                 qty = parseInt(qty, 10) + 1;
 
                 if (qty < 0)
@@ -61,9 +67,6 @@
             }
             else
             {
-                $("#lastQuestion").show();
-                $("#nextQuestionButton").hide();
-
                 var score = 0;
                 for (i = 0; i < 20; i++)
                 {
