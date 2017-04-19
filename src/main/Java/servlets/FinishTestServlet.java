@@ -29,6 +29,6 @@ public class FinishTestServlet extends HttpServlet
 		InsertGrade insertGrade = new InsertGrade(grade, "student1");
 		insertGrade.insertGrade();
 		
-		request.getRequestDispatcher("/pastTests.jsp").forward(request, response);
+		request.getRequestDispatcher("PastTestsServlet").forward(request, response);
 	}
 }

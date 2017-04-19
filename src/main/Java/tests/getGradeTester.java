@@ -14,33 +14,33 @@ public class getGradeTester
     {
         Queries aStudentsGrade = new Queries();
 
-        try {
+//        try {
 
-            ArrayList<String[]> grades = aStudentsGrade.getUserGrades("student1");
+//            ArrayList<String[]> grades = aStudentsGrade.getUserGrades("student1");
 
-            for (int i = 0; i < grades.size(); i++)
-            {
-                for (int j = 0; j < grades.get(i).length; j++)
-                {
-                    System.out.print(grades.get(i)[j] + "  ");
-                }
+//            for (int i = 0; i < grades.size(); i++)
+//            {
+//                for (int j = 0; j < grades.get(i).length; j++)
+//                {
+//                    System.out.print(grades.get(i)[j] + "  ");
+//                }
+//
+//                System.out.println("");
+//
+//            }
 
-                System.out.println("");
 
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally
-        {
-
-            try {
-                aStudentsGrade.closeConnection();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        finally
+//        {
+//
+//            try {
+//                aStudentsGrade.closeConnection();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

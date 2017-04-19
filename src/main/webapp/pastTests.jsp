@@ -28,15 +28,47 @@
         <ul class="topnav">
             <li><a href="StudentHomepageServlet">Student Homepage</a></li>
             <li><a href="StartTestServlet">Take Test</a></li>
-            <li><a href="pastTests.jsp" class="active">View Past Tests</a></li>
+            <li><a href="PastTestsServlet" class="active">View Past Tests</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
 
     <div>
         <div id="heading">
-            <h2>View Past Tests</h2>
+            <p id="resultsTable"></p>
         </div>
     </div>
+
+    <script>
+        var myArray = [<%
+                String[][] array = (String[][])session.getAttribute("grades");
+                for (int i = 0; i < array.length; i++)
+                {%>[<%
+                    for (int j = 0; j < array[0].length; j++)
+                    {
+                    %>"<%= array[i][j] %>", <%
+                    }
+                    %>], <%
+                }
+                %>];
+        var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th></tr>";
+        for (var i = 0; i < myArray.length; i++)
+        {
+            myTable += "<tr>";
+
+            for (var j = 1; j < 3; j++)
+            {
+                myTable += "<th>";
+                myTable += myArray[i][j];
+                myTable += "</th>";
+            }
+
+            myTable += "</tr>";
+        }
+        myTable += "</table>";
+
+        document.getElementById("resultsTable").innerHTML = myTable;
+    </script>
+
 </body>
 </html>

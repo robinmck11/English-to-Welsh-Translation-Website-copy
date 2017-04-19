@@ -53,44 +53,45 @@ public class Queries
 			
 			for (int i = 0; i < columnCount; i++) //todo probably change column count to 3
 			{
-				
 				random20[x][i] = rs.getString(i + 1);
 			}
 			x++;
 		}
-
+		
 		conn.close();
 		return random20;
-
+		
 	}
-
-	public ArrayList<String[]> getUserGrades(String userName) throws SQLException {
-
+	
+	public String[][] getUserGrades(String userName) throws SQLException
+	{
+		
 		PreparedStatement pS = conn.prepareStatement("SELECT * FROM test WHERE username = '" + userName + "';");
 		ResultSet rS = pS.executeQuery();
-
+		
 		final int columnCount = 4;
-
+		
 		ArrayList<String[]> grades = new ArrayList<String[]>();
-
-		while(rS.next())
+		
+		while (rS.next())
 		{
 			String[] testGrade = new String[4];
-
+			
 			int rowCount = 0;
-
+			
 			for (int i = 0; i < columnCount; i++)
 			{
 				//String test = rS.getString(4);
 				testGrade[i] = rS.getString(i + 1);
 			}
-
-			grades.add(rowCount,testGrade);
+			
+			grades.add(rowCount, testGrade);
 			rowCount++;
 		}
 		conn.close();
-		return grades;
-
+		
+		String[][] gradesArray = grades.toArray(new String[][]{new String[grades.size()]});
+		return gradesArray;
 	}
 	
 	

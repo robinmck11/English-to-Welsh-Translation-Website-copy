@@ -72,6 +72,16 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>PastTestsServlet</servlet-name>
+		<servlet-class>servlets.PastTestsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PastTestsServlet</servlet-name>
+		<url-pattern>/PastTestsServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>AdminHomepageServlet</servlet-name>
 		<servlet-class>servlets.AdminHomepageServlet</servlet-class>
 	</servlet>

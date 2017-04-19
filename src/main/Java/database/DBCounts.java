@@ -68,7 +68,7 @@ public class DBCounts
      * @return the number of tests taken by that user
      */
 
-    public String getTestCount(String username)
+    public int getTestCount(String username)
     {
         String userTestCount = null;
 
@@ -93,8 +93,14 @@ public class DBCounts
                 e.printStackTrace();
             }
         }
+	
+		int userTestCountInt = 0;
+        try
+		{
+			userTestCountInt = Integer.parseInt(userTestCount);
+		} catch (Exception e) {}
 
-        return userTestCount;
+        return userTestCountInt;
     }
 
     /**
@@ -103,7 +109,7 @@ public class DBCounts
      * @return the average grade
      */
 
-    public String getAvgGrade(String username)
+    public Double getAvgGrade(String username)
     {
 
         String avgGrade = null;
@@ -129,6 +135,12 @@ public class DBCounts
                 e.printStackTrace();
             }
         }
-        return avgGrade;
+        
+        double avgGradeDouble = 0;
+        try
+		{
+			avgGradeDouble = Double.parseDouble(avgGrade);
+		} catch (Exception e) {}
+		return avgGradeDouble;
     }
 }
