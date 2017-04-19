@@ -19,13 +19,15 @@
         var nouns = [<%
             String[][] array = (String[][])session.getAttribute("nouns");
             for (int i = 0; i < array.length; i++)
-            {
+            {%>[<%
               	for (int j = 0; j < array[0].length; j++)
                 {
                 %>"<%= array[i][j] %>", <%
+                }
+                %>],<%
             }
-        }
-        %> ];
+            %> ];
+
         function nextQuestion(answer) {
             ans = [ans, document.getElementById('answer').value];
             var qty = document.getElementById('qty').value;
@@ -43,9 +45,9 @@
 
 
 
-            var english = nouns[qty*3];
-            var welsh = nouns[qty*3+1];
-            var gender = nouns[qty*3+2];
+            var english = nouns[qty][0];
+            var welsh = nouns[qty][1];
+            var gender = nouns[qty][2];
 
             if (ran === 0)
                 question = "What is the gender of the Welsh noun " + welsh + "?";
@@ -64,9 +66,9 @@
             $("#testForm").show();
             $("#start").hide()
 
-            var english = nouns[0];
-            var welsh = nouns[1];
-            var gender = nouns[2];
+            var english = nouns[0][0];
+            var welsh = nouns[0][1];
+            var gender = nouns[0][2];
 
             if (ran === 0)
                 question = "What is the gender of the Welsh noun " + welsh + "?";
