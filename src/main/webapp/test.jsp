@@ -31,9 +31,9 @@
         {
             ans.push( document.getElementById('answer').value);
             var qty = document.getElementById('qty').value;
-            if (qty != 20)
+            if (qty != 19)
             {
-                if (qty == 19)
+                if (qty == 18)
                 {
                     $("#lastQuestion").show();
                     $("#nextQuestionButton").hide();
