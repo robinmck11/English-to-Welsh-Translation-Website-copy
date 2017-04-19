@@ -88,7 +88,6 @@
                             score++;
                     }
                 }
-                window.alert(score);
 
                 $.ajax({
                     url: 'FinishTestServlet',
@@ -98,7 +97,6 @@
                     type: 'GET'
                 });
             }
-//            window.alert(ans +qty);
         }
 
         function startTest()
@@ -138,7 +136,7 @@
     <div id="slide1">
         <div id="heading">
             <form>
-                <h1><p style="text-align: center"><input style="background: none; border: none; color: #000000; font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: lighter; cursor: pointer;"
+                <h1><p style="text-align: center"><input style="background: none; border: none; color: #000000; font-family: 'Raleway', sans-serif; font-size: 19px; font-weight: lighter; cursor: pointer; text-align: center"
                         id="start" onclick="startTest()" name="submit" value="Start Test"></p></h1>
             </form>
 
