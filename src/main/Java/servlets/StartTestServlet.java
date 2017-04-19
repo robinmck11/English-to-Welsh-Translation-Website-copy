@@ -36,7 +36,7 @@ public class StartTestServlet extends HttpServlet
 		for (int i = 0; i < nouns.length; i++)
 		{
 			for (int j = 0; j < nouns[0].length; j++)
-				request.setAttribute("nouns:" + i + ":" + j, nouns[i][j]);
+				request.setAttribute("nouns" + i + j, nouns[i][j]);
 		}
 		request.getRequestDispatcher("/test.jsp").forward(request, response);
 	}

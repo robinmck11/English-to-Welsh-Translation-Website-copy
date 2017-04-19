@@ -84,6 +84,11 @@ input[type=password]
 	min-width: 400px;
 }
 
+#question
+{
+    font-size: 19px;
+}
+
 input[type=text]:focus
 {
     border-bottom: 1px solid #3A7DB9;
