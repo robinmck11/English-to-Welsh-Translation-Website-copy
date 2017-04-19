@@ -58,7 +58,10 @@ public class Queries
 			}
 			x++;
 		}
+
+		conn.close();
 		return random20;
+
 	}
 
 	public ArrayList<String[]> getUserGrades(String userName) throws SQLException {
@@ -85,7 +88,7 @@ public class Queries
 			grades.add(rowCount,testGrade);
 			rowCount++;
 		}
-
+		conn.close();
 		return grades;
 
 	}
