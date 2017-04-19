@@ -21,7 +21,6 @@ public class StudentHomepageServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		DBCounts dbCounts = new DBCounts();
-		dbCounts.getCount("test", "");
 		
 		int noTestsTaken = 0;
 		int averageScore = 0;
