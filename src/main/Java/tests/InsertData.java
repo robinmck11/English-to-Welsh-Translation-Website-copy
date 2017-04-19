@@ -108,5 +108,60 @@ public class InsertData
 		System.out.println("-USERNAMES AND PASSWORDS -\nstudent1: student1\nstudent2: student2\ninstructor1: instructor1\ninstructor2: instructor2");
 		
 		InsertGrade student1Grade1 = new InsertGrade(20, "student1");
+		student1Grade1.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade2 = new InsertGrade(20, "student1");
+		student1Grade2.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade3 = new InsertGrade(40, "student1");
+		student1Grade3.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade4 = new InsertGrade(60, "student1");
+		student1Grade4.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade5 = new InsertGrade(80, "student1");
+		student1Grade5.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade6 = new InsertGrade(100, "student1");
+		student1Grade6.insertGrade();
+
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		InsertGrade student1Grade7 = new InsertGrade(120, "student1");
+		student1Grade7.insertGrade();
 	}
 }

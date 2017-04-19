@@ -2,11 +2,8 @@ package database;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by robin on 19/03/2017.
@@ -28,7 +25,7 @@ public class Queries
 	
 	public Queries()
 	{
-		inputStream = UserValidation.class.getResourceAsStream("/database.properties");
+		inputStream = Queries.class.getResourceAsStream("/database.properties");
 		
 		
 		try
@@ -62,6 +59,35 @@ public class Queries
 			x++;
 		}
 		return random20;
+	}
+
+	public ArrayList<String[]> getUserGrades(String userName) throws SQLException {
+
+		PreparedStatement pS = conn.prepareStatement("SELECT * FROM test WHERE username = '" + userName + "';");
+		ResultSet rS = pS.executeQuery();
+
+		final int columnCount = 4;
+
+		ArrayList<String[]> grades = new ArrayList<String[]>();
+
+		while(rS.next())
+		{
+			String[] testGrade = new String[4];
+
+			int rowCount = 0;
+
+			for (int i = 0; i < columnCount; i++)
+			{
+				//String test = rS.getString(4);
+				testGrade[i] = rS.getString(i + 1);
+			}
+
+			grades.add(rowCount,testGrade);
+			rowCount++;
+		}
+
+		return grades;
+
 	}
 	
 	
