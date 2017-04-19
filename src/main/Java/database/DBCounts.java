@@ -42,8 +42,8 @@ public class DBCounts
     {
 		try
 		{
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("SELECT count(" + field + ") FROM " + tableName + ";");
+			PreparedStatement st = conn.prepareStatement("SELECT count(" + field + ") FROM " + tableName + ";");
+			ResultSet rs = st.executeQuery();
 			
 			while(rs.next())
 				count = rs.getString(1);
