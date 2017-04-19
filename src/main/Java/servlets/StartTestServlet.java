@@ -33,6 +33,8 @@ public class StartTestServlet extends HttpServlet
 			e.printStackTrace();
 		}
 		
+		request.getSession().setAttribute("nouns", nouns);
+		
 		for (int i = 0; i < nouns.length; i++)
 		{
 			for (int j = 0; j < nouns[0].length; j++)

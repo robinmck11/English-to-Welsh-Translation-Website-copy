@@ -19,7 +19,7 @@
             $("#start").hide();
         }
     </script>
-    <script>
+    <script language="JavaScript">
         function nextQuestion(answer) {
             var qty = document.getElementById('qty').value;
             var new_qty = parseInt(qty, 10) + 1;
@@ -31,21 +31,27 @@
 
             var ran = Math.floor(Math.random() * 3);
             var question;
+            var nouns = [];
 
-            var englishStr = "nouns" + qty + "0";
-            var english = '${englishStr}';
-            var welshStr = "nouns" + qty + "1";
-            var welsh = '${welshStr}';
-            var genderStr = "nouns" + qty + "2";
-            var gender = '${genderStr}';
+            <%
+            String[][] array = (String[][])session.getAttribute("nouns");
+            for (int i = 0; i < array.length; i++)
+            {
+            %>
+            nouns[<%= i %>] = [];
+            <%
+              	for (int j = 0; j < array[0].length; j++)
+                {
+            %>
+            nouns[<%= i %>][<%= j %>]  = "<%= array[i][j] %>";
+            <%
+                }
+            }
+            %>
 
-            <%--var english = '${"nouns" + qty + "0"}';--%>
-            <%--var english = eval("'" + "\${nouns00}" + "'");--%>
-            <%--var english = eval('<%=request.getAttribute("nouns00")%>');--%>
-            <%--var english = '<%= session.getAttribute("nouns0" + "0") %>';--%>
-
-            <%--var welsh = '${nouns01}';--%>
-            <%--var gender = '${nouns02}';--%>
+            var english = nouns[qty][0];
+            var welsh = nouns[qty][1];
+            var gender = nouns[qty][2];
 
             if (ran === 0)
                 question = "What is the gender of the Welsh noun " + welsh + "?";
