@@ -14,6 +14,7 @@
         });
     </script>
 
+    <%--i end up with stray commers at the end of the arrays--%>
     <script>
         var ans = [];
         var nouns = [<%
