@@ -54,6 +54,12 @@ public class DBCounts
         return Integer.parseInt(count);
     }
 
+    /**
+     *
+     * @param username the username of the student
+     * @return the number of tests taken by that user
+     */
+
     public String getTestCount(String username)
     {
         String userTestCount = null;
@@ -73,5 +79,34 @@ public class DBCounts
         }
 
         return userTestCount;
+    }
+
+    /**
+     *
+     * @param username the sutudents username
+     * @return the average grade
+     */
+
+    public String getAvgGrade(String username)
+    {
+
+        String avgGrade = null;
+
+        try {
+
+            PreparedStatement pS = conn.prepareStatement("SELECT format(avg(grade),2) FROM test WHERE username = '" + username + "';");
+            ResultSet rS = pS.executeQuery();
+
+            while (rS.next())
+            {
+                avgGrade = rS.getString(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return avgGrade;
+
     }
 }
