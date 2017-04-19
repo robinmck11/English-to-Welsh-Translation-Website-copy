@@ -6,10 +6,7 @@ package database;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  *  Retrieve the count for rows in a table
@@ -55,5 +52,26 @@ public class DBCounts
 			e.printStackTrace();
 		}
         return Integer.parseInt(count);
+    }
+
+    public String getTestCount(String username)
+    {
+        String userTestCount = null;
+
+        try {
+
+            PreparedStatement pS = conn.prepareStatement("SELECT count(username) FROM test WHERE username = '" + username + "';");
+            ResultSet rS = pS.executeQuery();
+
+            while(rS.next())
+            {
+                userTestCount = rS.getString(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userTestCount;
     }
 }
