@@ -62,6 +62,16 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>FinishTestServlet</servlet-name>
+		<servlet-class>servlets.FinishTestServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FinishTestServlet</servlet-name>
+		<url-pattern>/FinishTestServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>AdminHomepageServlet</servlet-name>
 		<servlet-class>servlets.AdminHomepageServlet</servlet-class>
 	</servlet>
