@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         jQuery(function ($) {
-            $('#code').click(function () {
+            $('#nextQuestionButton').click(function () {
                 var val = ((document.getElementById('qty').value) * 5) + '%';
                 $('.progress-bar').width(val).text(val)
             })
@@ -20,12 +20,18 @@
         }
     </script>
     <script>
-        function nextQuestion(answer) {
+        function nextQuestion() {
             var qty = document.getElementById('qty').value;
             var new_qty = parseInt(qty, 10) + 1;
 
             if (new_qty < 0)
                 new_qty = 0;
+
+            if (new_qty === 20)
+            {
+                $("#lastQuestion").show();
+                $("#nextQuestionButton").hide();
+            }
 
             document.getElementById('qty').value = new_qty;
 
@@ -59,6 +65,7 @@
                 question = "What is the meaning of the Welsh noun " + welsh + "?";
             else
                 question = "What is the Welsh noun for the English word for " + english + "?";
+
             document.getElementById("question").innerHTML = question;
         }
         window.onload = nextQuestion;
@@ -80,6 +87,7 @@
 
             <div id="testForm" style="display: none">
                 <h2><input id="qty" value="0" style="display: none"/></h2>
+                <h2><input id="score" value="0" style="display: none"/></h2>
 
                 <p>
                     <div class="progress" style="width: 50%; margin: auto;">
@@ -94,7 +102,8 @@
                 <div id="add">
                     <p id="question"></p>
                     <p><input type="text" name="welshNoun" placeholder="Answer"></p>
-                    <p style="text-align: center"><input type="submit" id="code" onclick="nextQuestion();" name="submit" value="Next"></p>
+                    <p style="text-align: center"><input type="submit" id="nextQuestionButton" onclick="nextQuestion();" name="submit" value="Next"></p>
+                    <p style="text-align: center"><input type="submit" id="lastQuestion" onclick="nextQuestion();" name="submit" value="Next" style="display: none;"></p>
                 </div>
             </div>
         </div>
