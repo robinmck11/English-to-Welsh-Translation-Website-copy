@@ -94,6 +94,50 @@
                 document.getElementById("scoreField").value = score;
             }
         }
+        
+        function endTest()
+        {
+            var score = 0;
+            for (var i = 0; i < 20; i++)
+            {
+                var ansType = ans[i*2];
+                var userAns = ans[i*2+1];
+                if (ansType === 0)
+                {
+                    if (userAns === nouns[i][2])
+                        score++;
+                }
+                else if (ansType===1)
+                {
+                    if (userAns === nouns[i][0])
+                        score++;
+                }
+                else
+                {
+                    /*if (userAns.toUpperCase() === "MALE")
+                        userAns = "M";
+                    else if (userAns.toUpperCase() === "FEMALE")
+                        userAns = "F";
+*/
+                    if (userAns=== nouns[i][1])
+                        score++;
+                }
+            }
+            method ="post"; // Set method to post by default if not specified.
+
+            // The rest of this code assumes you are not using a library.
+            // It can be made less wordy if you use one.
+            var form = document.createElement("form");
+            form.setAttribute("method", method);
+            form.setAttribute("action", "FinishTestServlet");
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("score", score);
+            form.appendChild(hiddenField);
+
+            document.body.appendChild(form);
+            form.submit();
+
+        }
 
         function startTest()
         {
@@ -152,10 +196,8 @@
                     <p id="question"></p>
                     <p><input id="answer" type="text" name="welshNoun" placeholder="Answer"></p>
                     <p style="text-align: center"><input type="submit" id="nextQuestionButton" onclick="nextQuestion();" name="submit" value="Next"></p>
-                    <form action="FinishTestServlet" method="POST">
-                        <input id="scoreField" name="scoreField" value="">
-                        <p style="text-align: center"><input type="submit" id="lastQuestion" name="submit" value="End" style="display: none;"></p>
-                    </form>
+                    <p style="text-align: center"><input type="submit" id="lastQuestion" onclick="endTest();" name="submit" value="End" style="display: none;"></p>
+
                 </div>
             </div>
         </div>
