@@ -46,6 +46,7 @@
                 <div id="add" style="display:none;">
                     <p><input type="text" name="welshNoun" placeholder="Welsh Noun"></p>
                     <p><input type="text" name="englishNoun" placeholder="English Noun"></p>
+                    <p><input type="text" name="gender" placeholder="Gender [f/m]"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add"></p>
                 </div>
 
@@ -59,6 +60,7 @@
                     <p><input type="text" name="welshNounNew" placeholder="Welsh Noun New"></p>
                     <p><input type="text" name="englishNounOriginal" placeholder="English Noun Original"></p>
                     <p><input type="text" name="englishNounNew" placeholder="English Noun New"></p>
+                    <p><input type="text" name="gender" placeholder="Gender [f/m]"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Update"></p>
                 </div>
             </form>

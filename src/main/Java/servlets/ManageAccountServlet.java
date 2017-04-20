@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import database.AddUser;
+import database.RemoveRecord;
 
 public class ManageAccountServlet extends HttpServlet
 {
@@ -38,13 +39,8 @@ public class ManageAccountServlet extends HttpServlet
 		else if (submitType.equalsIgnoreCase("Remove Student"))
 		{
 			String studentUsername = request.getParameter("studentUsername");
-//			try
-//			{
-//				new AddUser(englishNoun, welshNoun);
-//			} catch (SQLException e)
-//			{
-//				e.printStackTrace();
-//			}
+			RemoveRecord removeRecord = new RemoveRecord();
+			removeRecord.removeRecord("student", "username", studentUsername);
 		}
 		else if (submitType.equalsIgnoreCase("Add Instructor"))
 		{
@@ -61,13 +57,8 @@ public class ManageAccountServlet extends HttpServlet
 		else if (submitType.equalsIgnoreCase("Remove Instructor"))
 		{
 			String instructorUsername = request.getParameter("instructorUsername");
-//			try
-//			{
-//				new AddNouns(englishNoun, welshNoun);
-//			} catch (SQLException e)
-//			{
-//				e.printStackTrace();
-//			}
+			RemoveRecord removeRecord = new RemoveRecord();
+			removeRecord.removeRecord("instructor", "username", instructorUsername);
 		}
 		
 		request.getRequestDispatcher("/manageAccounts.jsp").forward(request, response);

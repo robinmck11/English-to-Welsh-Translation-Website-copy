@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import database.AddNouns;
+import database.RemoveRecord;
+import database.UpdateNouns;
 
 public class ManageWordServlet extends HttpServlet
 {
@@ -27,12 +29,8 @@ public class ManageWordServlet extends HttpServlet
 		{
 			String welshNoun = request.getParameter("welshNoun");
 			String englishNoun = request.getParameter("englishNoun");
-
-			// No input field for gender. Added a placeholder to test adding nouns.
-
-			//String gender = request.getParameter("gender");
-			String gender = "f";
-
+			String gender = request.getParameter("gender").toLowerCase();
+			
 			try
 			{
 				new AddNouns(englishNoun, welshNoun, gender);
@@ -44,13 +42,8 @@ public class ManageWordServlet extends HttpServlet
 		else if (submitType.equalsIgnoreCase("Remove"))
 		{
 			String welshNoun = request.getParameter("welshNoun");
-//			try
-//			{
-//				new AddNouns(englishNoun, welshNoun);
-//			} catch (SQLException e)
-//			{
-//				e.printStackTrace();
-//			}
+			RemoveRecord removeRecord = new RemoveRecord();
+			removeRecord.removeRecord("nouns", "welshNoun", welshNoun);
 		}
 		else if (submitType.equalsIgnoreCase("Update"))
 		{
@@ -58,13 +51,10 @@ public class ManageWordServlet extends HttpServlet
 			String welshNounNew = request.getParameter("welshNounNew");
 			String englishNounOriginal = request.getParameter("englishNounOriginal");
 			String englishNounNew = request.getParameter("englishNounNew");
-//			try
-//			{
-//				new AddNouns(englishNoun, welshNoun);
-//			} catch (SQLException e)
-//			{
-//				e.printStackTrace();
-//			}
+			String gender = request.getParameter("gender").toLowerCase();
+			
+			UpdateNouns updateNouns = new UpdateNouns();
+			updateNouns.updateNouns(englishNounOriginal, welshNounOriginal, englishNounNew, welshNounNew);
 		}
 		
 		request.getRequestDispatcher("/manageWords.jsp").forward(request, response);
