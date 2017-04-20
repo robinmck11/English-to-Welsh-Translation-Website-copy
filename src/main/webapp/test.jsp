@@ -66,36 +66,7 @@
                 ans.push(ran);
                 $('#answer').val('');
             }
-            else
-            {
-                var score = 0;
-                for (var i = 0; i < 20; i++)
-                {
-                    var ansType = ans[i*2];
-                    var userAns = ans[i*2+1];
-                    if (ansType === 0)
-                    {
-                        if (userAns.toUpperCase() === nouns[i][2].toUpperCase())
-                            score++;
-                    }
-                    else if (ansType===1)
-                    {
-                        if (userAns.toUpperCase() === nouns[i][0].toUpperCase())
-                            score++;
-                    }
-                    else
-                    {
-                        if (userAns.toUpperCase() === "MALE")
-                            userAns = "M";
-                        else if (userAns.toUpperCase() === "FEMALE")
-                            userAns = "F";
 
-                        if (userAns.toUpperCase() === nouns[i][1].toUpperCase())
-                            score++;
-                    }
-                }
-                document.getElementById("scoreField").value = score;
-            }
         }
 
         function endTest()
@@ -126,6 +97,11 @@
                         score++;
                 }
             }
+
+                var value = "; " + document.cookie;
+                var parts = value.split("; user=");
+                if (parts.length == 2) var username = parts.pop().split(";").shift();
+
             method ="post"; // Set method to post by default if not specified.
 
             // The rest of this code assumes you are not using a library.
@@ -137,6 +113,10 @@
             var hiddenField = document.createElement("input");
             hiddenField.setAttribute("name", "score");
             hiddenField.setAttribute("value", score);
+            form.appendChild(hiddenField);
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("name", "username");
+            hiddenField.setAttribute("value", username);
             form.appendChild(hiddenField);
 
             document.body.appendChild(form);

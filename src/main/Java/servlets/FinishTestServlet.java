@@ -21,12 +21,16 @@ public class FinishTestServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		int grade = 0;
+		String username= "";
 		try
 		{
 			grade = Integer.parseInt(request.getParameter("score"));
-		} catch (Exception e) {}
+			username = request.getParameter("username");
+		} catch (Exception e) {
+			System.out.println("hey");
+		}
 		
-		InsertGrade insertGrade = new InsertGrade(grade, "student1");
+		InsertGrade insertGrade = new InsertGrade(grade, username);
 		insertGrade.insertGrade();
 		
 		response.sendRedirect("PastTestsServlet");
