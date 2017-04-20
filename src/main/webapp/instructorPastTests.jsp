@@ -36,7 +36,7 @@
     <div>
         <div id="heading">
             <form action="PastTestsServlet" method="get">
-                <div id="chooseStudent" style="display:none;">
+                <div>
                     <p><input type="text" name="studentUsername" placeholder="Student Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Get Grades"></p>
                 </div>
