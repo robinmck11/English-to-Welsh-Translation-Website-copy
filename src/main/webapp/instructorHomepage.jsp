@@ -32,7 +32,7 @@
         </ul>
     </header>
 
-    <div id="slide1">
+    <div>
         <div id="heading">
             <h2>Total Number of Words: ${noWords}</h2>
         </div>

@@ -35,12 +35,6 @@ public class PastTestsServlet extends HttpServlet
 			grades = new String[0][0];
 		}
 		
-		for (int i = 0; i < grades.length; i++)
-		{
-			for (int j = 1; j < 3; j++)
-				grades[i][j] = grades[i][j];
-		}
-		
 		request.getSession().setAttribute("grades", grades);
 		request.getRequestDispatcher("/pastTests.jsp").forward(request, response);
 	}

@@ -17,15 +17,18 @@
         var ans = [];
         var nouns = [<%
             String[][] array = (String[][])session.getAttribute("nouns");
-            for (int i = 0; i < array.length; i++)
-            {%>[<%
-              	for (int j = 0; j < array[0].length; j++)
-                {
-                %>"<%= array[i][j] %>", <%
+            if (array != null && array[0] != null)
+            {
+                for (int i = 0; i < array.length; i++)
+                {%>[<%
+                    for (int j = 0; j < array[0].length; j++)
+                    {
+                    %>"<%= array[i][j] %>", <%
+                    }
+                    %>], <%
                 }
-                %>], <%
             }
-            %>];
+        %>];
 
         function nextQuestion(answer)
         {

@@ -33,7 +33,7 @@
         </ul>
     </header>
 
-    <div id="slide1">
+    <div>
         <div id="heading">
             <h2>Total Tests Taken: ${noTestsTaken}</h2>
             <h2>Average Test Score: ${averageScore}</h2>

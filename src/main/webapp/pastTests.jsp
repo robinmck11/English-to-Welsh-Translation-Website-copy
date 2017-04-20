@@ -41,22 +41,25 @@
 
     <script>
         var myArray = [<%
-                String[][] array = (String[][])session.getAttribute("grades");
+            String[][] array = (String[][])session.getAttribute("grades");
+            if (array != null && array[0] != null)
+            {
                 for (int i = 0; i < array.length; i++)
                 {%>[<%
                     for (int j = 0; j < array[0].length; j++)
                     {
-                    %>"<%= array[i][j] %>", <%
+                        %>"<%= array[i][j] %>", <%
                     }
                     %>], <%
                 }
-                %>];
-        var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th></tr>";
+            }
+        %>];
+        var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th><th>Time Achieved</th></tr>";
         for (var i = 0; i < myArray.length; i++)
         {
             myTable += "<tr>";
 
-            for (var j = 1; j < 3; j++)
+            for (var j = 1; j < myArray[0].length; j++)
             {
                 myTable += "<th>";
                 myTable += myArray[i][j];

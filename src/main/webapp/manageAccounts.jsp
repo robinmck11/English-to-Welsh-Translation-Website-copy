@@ -33,7 +33,7 @@
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
-    <div id="slide1">
+    <div>
         <div id="heading">
             <form action="ManageAccountServlet" method="post">
                 <select id="action">
