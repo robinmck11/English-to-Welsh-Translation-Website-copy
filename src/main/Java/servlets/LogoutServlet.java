@@ -43,6 +43,7 @@ public class LogoutServlet extends HttpServlet
 			loginCookie.setMaxAge(0);
 			response.addCookie(loginCookie);
 		}
+		request.removeAttribute("username");
 		response.sendRedirect("index.html");
 	}
 }

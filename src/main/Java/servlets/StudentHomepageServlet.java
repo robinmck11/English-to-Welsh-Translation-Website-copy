@@ -21,11 +21,11 @@ public class StudentHomepageServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		DBCounts dbCounts = new DBCounts();
-		int noTestsTaken = dbCounts.getTestCount("student1");
+		int noTestsTaken = dbCounts.getTestCount((String) request.getAttribute("username"));
 		
 		dbCounts = new DBCounts();
 		
-		double averageScore = dbCounts.getAvgGrade("student1");
+		double averageScore = dbCounts.getAvgGrade((String) request.getAttribute("username"));
 		request.setAttribute("noTestsTaken", noTestsTaken);
 		request.setAttribute("averageScore", (int)((averageScore / 20) * 100));
 		

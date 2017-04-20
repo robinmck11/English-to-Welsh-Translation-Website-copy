@@ -24,20 +24,30 @@ public class PastTestsServlet extends HttpServlet
 	{
 		String referrer = request.getHeader("referer");
 		String redirectPage;
+		String username;
 		
-		if (referrer.contains("admin"))
+		if (referrer.contains("admin") || referrer.contains("manageAccounts"))
+		{
 			redirectPage = "/adminPastTests.jsp";
-		else if (referrer.contains("instructor"))
+			username = (String) request.getAttribute("studentUsername");
+		}
+		else if (referrer.contains("instructor") || referrer.contains("manageWords"))
+		{
 			redirectPage = "/instructorPastTests.jsp";
+			username = (String) request.getAttribute("studentUsername");
+		}
 		else
+		{
 			redirectPage = "/pastTests.jsp";
-		
-		String[][] grades;
+			username = (String) request.getSession().getAttribute("username");
+		}
 		
 		Queries queries = new Queries();
+		String[][] grades;
+		
 		try
 		{
-			grades = queries.getUserGrades("student1");
+			grades = queries.getUserGrades(username);
 			queries.closeConnection();
 		} catch (SQLException e)
 		{

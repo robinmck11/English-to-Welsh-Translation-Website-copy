@@ -16,6 +16,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import database.UserValidation;
 
@@ -61,6 +62,10 @@ public class LoginServlet extends HttpServlet
 			Cookie loginCookie = new Cookie("user", user);
 			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30 * 60);
+			
+			HttpSession httpSession = request.getSession();
+			httpSession.setAttribute("username", user);
+			
 			response.addCookie(loginCookie);
 			response.sendRedirect(redirectPage);
 		}
