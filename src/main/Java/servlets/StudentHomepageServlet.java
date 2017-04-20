@@ -27,7 +27,7 @@ public class StudentHomepageServlet extends HttpServlet
 		
 		double averageScore = dbCounts.getAvgGrade("student1");
 		request.setAttribute("noTestsTaken", noTestsTaken);
-		request.setAttribute("averageScore", averageScore);
+		request.setAttribute("averageScore", (int)((averageScore / 20) * 100));
 		
 		request.getRequestDispatcher("/studentHomepage.jsp").forward(request, response);
 	}

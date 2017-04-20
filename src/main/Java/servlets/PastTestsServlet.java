@@ -22,6 +22,16 @@ public class PastTestsServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		String referrer = request.getHeader("referer");
+		String redirectPage;
+		
+		if (referrer.contains("admin"))
+			redirectPage = "/adminPastTests.jsp";
+		else if (referrer.contains("instructor"))
+			redirectPage = "/instructorPastTests.jsp";
+		else
+			redirectPage = "/pastTests.jsp";
+		
 		String[][] grades;
 		
 		Queries queries = new Queries();
@@ -36,6 +46,6 @@ public class PastTestsServlet extends HttpServlet
 		}
 		
 		request.getSession().setAttribute("grades", grades);
-		request.getRequestDispatcher("/pastTests.jsp").forward(request, response);
+		request.getRequestDispatcher(redirectPage).forward(request, response);
 	}
 }

@@ -10,6 +10,6 @@ public class UpdateNounsTester
     public static void main(String[] args)
     {
         UpdateNouns updateNouns = new UpdateNouns();
-        updateNouns.updateNouns("eng", "welsh", "english", "WELSH");
+//        updateNouns.updateNouns("eng", "welsh", "english", "WELSH");
     }
 }

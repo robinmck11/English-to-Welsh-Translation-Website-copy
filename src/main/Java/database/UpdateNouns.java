@@ -43,7 +43,7 @@ public class UpdateNouns
      * @param newWel the new welsh word
      */
 
-    public void updateNouns(String oldEng, String oldWel, String newEng, String newWel, String oldGender, String newGender)
+    public void updateNouns(String oldEng, String oldWel, String newEng, String newWel, String newGender)
     {
         try {
 

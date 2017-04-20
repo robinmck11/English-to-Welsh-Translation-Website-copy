@@ -24,23 +24,23 @@
         response.sendRedirect("instructorLogin.html");
     }
 %>
-    <header>
-        <ul class="topnav">
-            <li><a href="StudentHomepageServlet">Student Homepage</a></li>
-            <li><a href="StartTestServlet">Take Test</a></li>
-            <li><a href="PastTestsServlet" class="active">View Past Tests</a></li>
-            <li><a href="LogoutServlet">Logout</a></li>
-        </ul>
-    </header>
+<header>
+    <ul class="topnav">
+        <li><a href="InstructorHomepageServlet" class="active">Instructor Homepage</a></li>
+        <li><a href="manageWords.jsp">Manage Words</a></li>
+        <li><a href="instructorPastTests.jsp" class="active">View Grades</a></li>
+        <li><a href="LogoutServlet">Logout</a></li>
+    </ul>
+</header>
 
-    <div>
-        <div id="heading">
-            <p id="resultsTable"></p>
-        </div>
+<div>
+    <div id="heading">
+        <p id="resultsTable"></p>
     </div>
+</div>
 
-    <script>
-        var myArray = [<%
+<script>
+    var myArray = [<%
             String[][] array = (String[][])session.getAttribute("grades");
             if (array != null && array[0] != null)
             {
@@ -54,23 +54,23 @@
                 }
             }
         %>];
-        var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th><th>Time Achieved</th></tr>";
-        for (var i = 0; i < myArray.length; i++)
+    var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th><th>Time Achieved</th></tr>";
+    for (var i = 0; i < myArray.length; i++)
+    {
+        myTable += "<tr>";
+
+        for (var j = 1; j < myArray[0].length; j++)
         {
-            myTable += "<tr>";
-
-            for (var j = 1; j < myArray[0].length; j++)
-            {
-                myTable += "<th>";
-                myTable += myArray[i][j];
-                myTable += "</th>";
-            }
-
-            myTable += "</tr>";
+            myTable += "<th>";
+            myTable += myArray[i][j];
+            myTable += "</th>";
         }
-        myTable += "</table>";
 
-        document.getElementById("resultsTable").innerHTML = myTable;
-    </script>
+        myTable += "</tr>";
+    }
+    myTable += "</table>";
+
+    document.getElementById("resultsTable").innerHTML = myTable;
+</script>
 </body>
 </html>

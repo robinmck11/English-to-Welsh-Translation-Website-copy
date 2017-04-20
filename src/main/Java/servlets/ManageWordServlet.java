@@ -54,7 +54,7 @@ public class ManageWordServlet extends HttpServlet
 			String gender = request.getParameter("gender").toLowerCase();
 			
 			UpdateNouns updateNouns = new UpdateNouns();
-			updateNouns.updateNouns(englishNounOriginal, welshNounOriginal, englishNounNew, welshNounNew);
+			updateNouns.updateNouns(englishNounOriginal, welshNounOriginal, englishNounNew, welshNounNew, gender);
 		}
 		
 		request.getRequestDispatcher("/manageWords.jsp").forward(request, response);
