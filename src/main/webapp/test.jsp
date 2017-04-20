@@ -130,8 +130,10 @@
             var form = document.createElement("form");
             form.setAttribute("method", method);
             form.setAttribute("action", "FinishTestServlet");
+
             var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("score", score);
+            hiddenField.setAttribute("name", "score");
+            hiddenField.setAttribute("value", score);
             form.appendChild(hiddenField);
 
             document.body.appendChild(form);
