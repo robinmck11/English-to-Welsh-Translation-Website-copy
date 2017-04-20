@@ -3,6 +3,7 @@ package database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -47,13 +48,15 @@ public class UpdateNouns
     {
         try {
 
-            // Might aswell leave this as statement
-
             Statement st = conn.createStatement();
 
+            PreparedStatement pS = conn.prepareStatement("UPDATE " + tableName + " SET " + genderField + " = " + "'" + newGender + "'" + " WHERE " + genderField + " = " + "?;");
+
             st.executeUpdate("UPDATE " + tableName + " SET " + englishField + " = " + "'" + newEng + "'" + " WHERE " + englishField + " = " + "'" + oldEng + "';");
-            st.executeUpdate("UPDATE " + tableName + " SET " + welshField + " = " + "'" + newWel + "'" + " WHERE " + welshField + " = " + "'" + newWel + "';");
-            st.executeUpdate("UPDATE " + tableName + " SET " + genderField + " = " + "'" + newGender + "'" + " WHERE " + genderField + " = " + "'" + newGender + "';");
+            st.executeUpdate("UPDATE " + tableName + " SET " + welshField + " = " + "'" + newWel + "'" + " WHERE " + welshField + " = " + "'" + oldWel + "';");
+
+            pS.setString(1,newGender);
+            pS.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
