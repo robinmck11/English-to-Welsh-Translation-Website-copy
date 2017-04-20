@@ -16,7 +16,7 @@ public class AddNouns
 	
 	private InputStream inputStream;
 	private Connection conn;
-	
+
 	public AddNouns(String englishNoun, String welshNoun, String gender) throws SQLException
 	{
 		inputStream = AddNouns.class.getResourceAsStream("/database.properties");
