@@ -18,6 +18,7 @@ public class UpdateNouns
 
     private final String welshField = "welshNoun";
     private final String englishField = "englishNoun";
+    private final String genderField = "gender";
 
     public UpdateNouns()
     {
@@ -42,7 +43,7 @@ public class UpdateNouns
      * @param newWel the new welsh word
      */
 
-    public void updateNouns(String oldEng, String oldWel, String newEng, String newWel)
+    public void updateNouns(String oldEng, String oldWel, String newEng, String newWel, String oldGender, String newGender)
     {
         try {
 
@@ -52,6 +53,7 @@ public class UpdateNouns
 
             st.executeUpdate("UPDATE " + tableName + " SET " + englishField + " = " + "'" + newEng + "'" + " WHERE " + englishField + " = " + "'" + oldEng + "';");
             st.executeUpdate("UPDATE " + tableName + " SET " + welshField + " = " + "'" + newWel + "'" + " WHERE " + welshField + " = " + "'" + newWel + "';");
+            st.executeUpdate("UPDATE " + tableName + " SET " + genderField + " = " + "'" + newGender + "'" + " WHERE " + genderField + " = " + "'" + newGender + "';");
 
         } catch (SQLException e) {
             e.printStackTrace();
