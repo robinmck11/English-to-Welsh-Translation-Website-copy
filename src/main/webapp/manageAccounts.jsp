@@ -30,6 +30,7 @@
         <ul class="topnav">
             <li><a href="AdminHomepageServlet">Admin Homepage</a></li>
             <li><a href="manageAccounts.jsp" class="active">Manage Accounts</a></li>
+            <li><a href="adminPastTests.jsp">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>

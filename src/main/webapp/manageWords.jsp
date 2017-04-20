@@ -30,7 +30,7 @@
         <ul class="topnav">
             <li><a href="InstructorHomepageServlet">Instructor Homepage</a></li>
             <li><a href="manageWords.jsp" class="active">Manage Words</a></li>
-            <li><a href="PastTestsServlet">View Grades</a></li>
+            <li><a href="instructorPastTests.jsp">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>

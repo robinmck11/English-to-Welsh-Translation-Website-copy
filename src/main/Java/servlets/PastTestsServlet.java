@@ -23,20 +23,20 @@ public class PastTestsServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		String referrer = request.getHeader("referer");
-		String redirectPage;
-		String username;
+		String redirectPage = "";
+		String username = "";
 		
-		if (referrer.contains("admin") || referrer.contains("manageAccounts"))
+		if (referrer.contains("admin"))
 		{
 			redirectPage = "/adminPastTests.jsp";
 			username = (String) request.getAttribute("studentUsername");
 		}
-		else if (referrer.contains("instructor") || referrer.contains("manageWords"))
+		else if (referrer.contains("instructor"))
 		{
 			redirectPage = "/instructorPastTests.jsp";
 			username = (String) request.getAttribute("studentUsername");
 		}
-		else
+		else if (referrer.contains("student"))
 		{
 			redirectPage = "/pastTests.jsp";
 			username = (String) request.getSession().getAttribute("username");

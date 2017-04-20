@@ -29,7 +29,7 @@
         <ul class="topnav">
             <li><a href="AdminHomepageServlet" class="active">Instructor Homepage</a></li>
             <li><a href="manageWords.jsp">Manage Words</a></li>
-            <li><a href="PastTestsServlet" class="active">View Grades</a></li>
+            <li><a href="adminPastTests.jsp">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
