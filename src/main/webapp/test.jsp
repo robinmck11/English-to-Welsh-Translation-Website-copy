@@ -66,34 +66,32 @@
             else
             {
                 var score = 0;
-                for (i = 0; i < 20; i++)
+                for (var i = 0; i < 20; i++)
                 {
                     var ansType = ans[i*2];
                     var userAns = ans[i*2+1];
                     if (ansType === 0)
                     {
-                        if (userAns === nouns[i][2])
+                        if (userAns.toUpperCase() === nouns[i][2].toUpperCase())
                             score++;
                     }
                     else if (ansType===1)
                     {
-                        if (userAns === nouns[i][0])
+                        if (userAns.toUpperCase() === nouns[i][0].toUpperCase())
                             score++;
                     }
                     else
                     {
-                        if (userAns === nouns[i][1])
+                        if (userAns.toUpperCase() === "MALE")
+                            userAns = "M";
+                        else if (userAns.toUpperCase() === "FEMALE")
+                            userAns = "F";
+
+                        if (userAns.toUpperCase() === nouns[i][1].toUpperCase())
                             score++;
                     }
                 }
-
-                $.ajax({
-                    url: 'FinishTestServlet',
-                    data: {
-                        scoreVar: score
-                    },
-                    type: 'GET'
-                });
+                document.getElementById("scoreField").value = score;
             }
         }
 
@@ -154,7 +152,8 @@
                     <p id="question"></p>
                     <p><input id="answer" type="text" name="welshNoun" placeholder="Answer"></p>
                     <p style="text-align: center"><input type="submit" id="nextQuestionButton" onclick="nextQuestion();" name="submit" value="Next"></p>
-                    <form action="FinishTestServlet" method="GET">
+                    <form action="FinishTestServlet" method="POST">
+                        <input id="scoreField" name="scoreField" value="">
                         <p style="text-align: center"><input type="submit" id="lastQuestion" name="submit" value="End" style="display: none;"></p>
                     </form>
                 </div>

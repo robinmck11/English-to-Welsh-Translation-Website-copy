@@ -18,17 +18,18 @@ import database.InsertGrade;
 
 public class FinishTestServlet extends HttpServlet
 {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		int grade = 0;
 		try
 		{
-			grade = Integer.parseInt(request.getParameter("scoreVar"));
+			grade = Integer.parseInt(request.getParameter("score"));
 		} catch (Exception e) {}
 		
 		InsertGrade insertGrade = new InsertGrade(grade, "student1");
 		insertGrade.insertGrade();
 		
-		request.getRequestDispatcher("PastTestsServlet").forward(request, response);
+//		request.getRequestDispatcher("PastTestsServlet").forward(request, response);
+		response.sendRedirect("PastTestsServlet");
 	}
 }
