@@ -1,0 +1,23 @@
+Login System
+
+Passwords for students and instructors must have a strength of 3 as defined by the jQuery form validator.
+
+Form Validator Website:
+www.formvalidator.net
+
+Passwords for the administrator accounts are set directly through the database or when running the addSqlDummyData.jar and have no rules regarding their form.
+
+Sample passwords include:
+	Alphanumeric passwords with one case and no special characters with a length greater than 12
+		q123456789123
+		Q123456789123
+	Exclusively letter based passwords with a length over 17
+		QWERTYUIOPLKJHGFDS
+		qwertyuioplkjhgfds
+	Exclusively numeric based passwords with a length over 16
+		12345678912345678
+	A combination of alphanumerics and varying case with a length over 10
+		QWERTyui123
+	A combination of alphanumerics, with or without varying case and special characters with a length over 3
+		Qw1#
+		qw1#
