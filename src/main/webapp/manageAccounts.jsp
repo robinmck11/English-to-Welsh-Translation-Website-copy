@@ -15,7 +15,7 @@
     {
         for (Cookie cookie : cookies)
         {
-            if (cookie.getName().equals("user"))
+            if (cookie.getName().equals("admin"))
             {
                 userName = cookie.getValue();
             }

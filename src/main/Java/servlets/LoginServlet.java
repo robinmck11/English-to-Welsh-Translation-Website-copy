@@ -31,21 +31,26 @@ public class LoginServlet extends HttpServlet
 		String referrer = request.getHeader("referer");
 		String tableName = "";
 		String redirectPage = "";
+		String cookieType = "";
 
 		if (referrer.contains("adminLogin"))
 		{
 			tableName = "sysAdmin";
 			redirectPage = "AdminHomepageServlet";
+			cookieType = "admin";
+
 		}
 		else if (referrer.contains("studentLogin"))
 		{
 			tableName = "student";
 			redirectPage = "StudentHomepageServlet";
+			cookieType = "user";
 		}
 		else if (referrer.contains("instructorLogin"))
 		{
 			tableName = "instructor";
 			redirectPage = "InstructorHomepageServlet";
+			cookieType = "instructor";
 		}
 		
 		// get request parameters for userID and password
@@ -71,7 +76,7 @@ public class LoginServlet extends HttpServlet
 				e.printStackTrace();
 			}
 
-			Cookie loginCookie = new Cookie("user", token);
+			Cookie loginCookie = new Cookie(cookieType, token);
 			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30 * 60);
 			
