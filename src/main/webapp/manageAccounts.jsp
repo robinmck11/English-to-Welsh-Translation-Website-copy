@@ -8,24 +8,24 @@
     <script>window.onload=function(){$("#action").change(function(){switch(selection=$(this).val(),selection){case"addStudent":$("#addStudent").show(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").hide();break;case"removeStudent":$("#addStudent").hide(),$("#removeStudent").show(),$("#addInstructor").hide(),$("#removeInstructor").hide();break;case"addInstructor":$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").show(),$("#removeInstructor").hide();break;case"removeInstructor":$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").show();break;default:$("#addStudent").hide(),$("#removeStudent").hide(),$("#addInstructor").hide(),$("#removeInstructor").hide()}})};</script>
 </head>
 <body>
-<%
-    String userName = null;
-    Cookie[] cookies = request.getCookies();
-    if (cookies != null)
-    {
-        for (Cookie cookie : cookies)
+    <%
+        String userName = null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null)
         {
-            if (cookie.getName().equals("user"))
+            for (Cookie cookie : cookies)
             {
-                userName = cookie.getValue();
+                if (cookie.getName().equals("user"))
+                {
+                    userName = cookie.getValue();
+                }
             }
         }
-    }
-    if (userName == null)
-    {
-        response.sendRedirect("instructorLogin.html");
-    }
-%>
+        if (userName == null)
+        {
+            response.sendRedirect("instructorLogin.html");
+        }
+    %>
     <header>
         <ul class="topnav">
             <li><a href="AdminHomepageServlet">Admin Homepage</a></li>
@@ -47,7 +47,7 @@
 
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
-                    <p><input type="password" name="studentPassword" placeholder="Password"></p>
+                    <p><input type="password" name="studentPassword" placeholder="Password" data-validation="strength" data-validation-strength="2"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Student"></p>
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
-                    <p><input type="password" name="instructorPassword" placeholder="Password"></p>
+                    <p><input type="password" name="instructorPassword" placeholder="Password" data-validation="strength" data-validation-strength="2"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Instructor"></p>
                 </div>
 
@@ -69,5 +69,12 @@
             </form>
         </div>
     </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script>
+        $.validate({
+            modules : 'security',
+            onModulesLoaded : function() {}
+        });
+    </script>
 </body>
 </html>
