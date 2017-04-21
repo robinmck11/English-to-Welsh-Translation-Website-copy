@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.CheckToken;
 import database.InsertGrade;
 
 public class FinishTestServlet extends HttpServlet
@@ -25,7 +26,11 @@ public class FinishTestServlet extends HttpServlet
 		try
 		{
 			grade = Integer.parseInt(request.getParameter("score"));
-			username = request.getParameter("username");
+			int token = Integer.parseInt(request.getParameter("username"));
+			CheckToken checkToken = new CheckToken();
+			username = checkToken.verifyToken(token);
+			checkToken.closeConnection();
+
 		} catch (Exception e) {}
 		
 		InsertGrade insertGrade = new InsertGrade(grade, username);

@@ -8,19 +8,30 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.CheckToken;
 import database.DBCounts;
 
 public class StudentHomepageServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String username = (String) request.getSession().getAttribute("username");
+		int token = Integer.parseInt((String) request.getSession().getAttribute("username"));
+
+		String username= "";
+		try {
+			CheckToken checkToken = new CheckToken();
+			username = checkToken.verifyToken(token);
+			checkToken.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		DBCounts dbCounts = new DBCounts();
 		int noTestsTaken = dbCounts.getTestCount(username);
 		

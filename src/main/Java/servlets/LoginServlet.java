@@ -9,6 +9,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import database.AddToken;
 import database.UserValidation;
 
 public class LoginServlet extends HttpServlet
@@ -64,8 +66,16 @@ public class LoginServlet extends HttpServlet
 			loginCookie.setMaxAge(30 * 60);
 			
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("username", user);
-			
+			AddToken addToken = null;
+			try {
+				addToken = new AddToken();
+				httpSession.setAttribute("username",Integer.toString( addToken.generateToken(user)));
+				addToken.closeConnection();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("hey");
+			}
+
 			response.addCookie(loginCookie);
 			response.sendRedirect(redirectPage);
 		}
