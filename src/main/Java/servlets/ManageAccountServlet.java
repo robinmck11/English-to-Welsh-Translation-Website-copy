@@ -26,11 +26,11 @@ public class ManageAccountServlet extends HttpServlet
 		
 		if (submitType.equalsIgnoreCase("Add Student"))
 		{
-			String studentName = request.getParameter("studentName");
 			String studentUsername = request.getParameter("studentUsername");
+			String studentPassword = request.getParameter("studentPassword");
 			try
 			{
-				new AddUser().addStudent(studentName, studentUsername);
+				new AddUser().addStudent(studentUsername, studentPassword);
 			} catch (SQLException e)
 			{
 				e.printStackTrace();
@@ -44,11 +44,11 @@ public class ManageAccountServlet extends HttpServlet
 		}
 		else if (submitType.equalsIgnoreCase("Add Instructor"))
 		{
-			String instructorName = request.getParameter("instructorName");
 			String instructorUsername = request.getParameter("instructorUsername");
+			String instructorPassword = request.getParameter("instructorPassword");
 			try
 			{
-				new AddUser().addInstructor(instructorName, instructorUsername);
+				new AddUser().addInstructor(instructorUsername, instructorPassword);
 			} catch (SQLException e)
 			{
 				e.printStackTrace();

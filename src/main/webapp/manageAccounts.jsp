@@ -47,7 +47,7 @@
 
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
-                    <p><input type="text" name="" placeholder="Password"></p>
+                    <p><input type="password" name="studentPassword" placeholder="Password"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Student"></p>
                 </div>
 
@@ -57,8 +57,8 @@
                 </div>
 
                 <div id="addInstructor" style="display:none;">
-                    <p><input type="text" name="instructorName" placeholder="Instructor Name"></p>
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
+                    <p><input type="password" name="instructorPassword" placeholder="Password"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Instructor"></p>
                 </div>
 

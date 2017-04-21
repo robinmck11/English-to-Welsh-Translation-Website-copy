@@ -21,8 +21,9 @@ public class AdminHomepageServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		DBCounts dbCounts = new DBCounts();
-		
 		int noStudents = dbCounts.getCount("student", "username");
+		
+		dbCounts = new DBCounts();
 		int noInstructors = dbCounts.getCount("instructor", "username");
 		
 		request.setAttribute("noStudents", noStudents);
