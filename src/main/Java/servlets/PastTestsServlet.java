@@ -23,16 +23,8 @@ public class PastTestsServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int token = Integer.parseInt((String) request.getSession().getAttribute("username"));
+		String username = (String) request.getSession().getAttribute("username");
 
-		String username= "";
-		try {
-			CheckToken checkToken = new CheckToken();
-			 username = checkToken.verifyToken(token);
-			checkToken.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 
 
 		Queries queries = new Queries();
