@@ -26,7 +26,7 @@
     %>
     <header>
         <ul class="topnav">
-            <li><a href="InstructorHomepageServlet" class="active">Instructor Homepage</a></li>
+            <li><a href="InstructorHomepageServlet">Instructor Homepage</a></li>
             <li><a href="manageWords.jsp">Manage Words</a></li>
             <li><a href="instructorPastTests.jsp" class="active">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
@@ -35,9 +35,9 @@
 
     <div>
         <div id="heading">
-            <form action="PastTestsServlet" method="get">
+            <form action="InstructorPastTestsServlet" method="get">
                 <div>
-                    <p><input type="text" name="studentUsername" placeholder="Student Username"></p>
+                    <p><input type="text" name="username" placeholder="Student Username"></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Get Grades"></p>
                 </div>
             </form>

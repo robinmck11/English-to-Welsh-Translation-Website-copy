@@ -82,6 +82,26 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>InstructorPastTestsServlet</servlet-name>
+		<servlet-class>servlets.InstructorPastTestsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InstructorPastTestsServlet</servlet-name>
+		<url-pattern>/InstructorPastTestsServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdminPastTestsServlet</servlet-name>
+		<servlet-class>servlets.AdminPastTestsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminPastTestsServlet</servlet-name>
+		<url-pattern>/AdminPastTestsServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>AdminHomepageServlet</servlet-name>
 		<servlet-class>servlets.AdminHomepageServlet</servlet-class>
 	</servlet>

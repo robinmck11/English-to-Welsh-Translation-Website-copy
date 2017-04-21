@@ -9,7 +9,6 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,18 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import database.Queries;
 
-public class PastTestsServlet extends HttpServlet
+public class AdminPastTestsServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String username = (String) request.getSession().getAttribute("username");
+		String username = (String) request.getAttribute("username");
 		
 		Queries queries = new Queries();
 		String[][] grades;
 		
 		try
 		{
-			grades = queries.getUserGrades("student1");
+			grades = queries.getUserGrades(username);
 			queries.closeConnection();
 		} catch (SQLException e)
 		{
@@ -38,6 +37,6 @@ public class PastTestsServlet extends HttpServlet
 		}
 		
 		request.getSession().setAttribute("grades", grades);
-		request.getRequestDispatcher("/pastTests.jsp").forward(request, response);
+		request.getRequestDispatcher("/adminPastTests.jsp").forward(request, response);
 	}
 }
