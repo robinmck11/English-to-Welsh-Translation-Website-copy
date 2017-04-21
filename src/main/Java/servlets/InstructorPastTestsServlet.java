@@ -15,23 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.CheckToken;
 import database.Queries;
 
 public class InstructorPastTestsServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int token = Integer.parseInt((String) request.getSession().getAttribute("username"));
-
-		String username= "";
-		try {
-			CheckToken checkToken = new CheckToken();
-			username = checkToken.verifyToken(token);
-			checkToken.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		String username = request.getParameter("username");
 		
 		Queries queries = new Queries();
 		String[][] grades;
