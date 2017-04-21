@@ -21,39 +21,46 @@
         }
         if (userName == null)
         {
-            response.sendRedirect("studentLogin.html");
+            response.sendRedirect("adminLogin.html");
         }
     %>
+
     <header>
         <ul class="topnav">
-            <li><a href="StudentHomepageServlet">Student Homepage</a></li>
-            <li><a href="StartTestServlet">Take Test</a></li>
-            <li><a href="PastTestsServlet" class="active">View Past Tests</a></li>
+            <li><a href="AdminHomepageServlet">Admin Homepage</a></li>
+            <li><a href="manageAccounts.jsp">Manage Accounts</a></li>
+            <li><a href="adminPastTests.jsp" class="active">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
 
     <div>
         <div id="heading">
+            <form action="AdminPastTestsServlet" method="get">
+                <div>
+                    <p><input type="text" name="username" placeholder="Student Username"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Get Grades"></p>
+                </div>
+            </form>
             <p id="resultsTable"></p>
         </div>
     </div>
 
     <script>
         var myArray = [<%
-            String[][] array = (String[][])session.getAttribute("grades");
-            if (array != null && array[0] != null)
-            {
-                for (int i = 0; i < array.length; i++)
-                {%>[<%
-                    for (int j = 0; j < array[0].length; j++)
-                    {
-                        %>"<%= array[i][j] %>", <%
+                String[][] array = (String[][])session.getAttribute("grades");
+                if (array != null && array[0] != null)
+                {
+                    for (int i = 0; i < array.length; i++)
+                    {%>[<%
+                        for (int j = 0; j < array[0].length; j++)
+                        {
+                            %>"<%= array[i][j] %>", <%
+                        }
+                        %>], <%
                     }
-                    %>], <%
                 }
-            }
-        %>];
+            %>];
         var myTable = "<table style='margin: 0px auto;'><tr><th>Grade</th><th>Date Achieved</th><th>Time Achieved</th></tr>";
         for (var i = 0; i < myArray.length; i++)
         {

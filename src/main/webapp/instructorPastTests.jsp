@@ -21,20 +21,26 @@
         }
         if (userName == null)
         {
-            response.sendRedirect("studentLogin.html");
+            response.sendRedirect("instructorLogin.html");
         }
     %>
     <header>
         <ul class="topnav">
-            <li><a href="StudentHomepageServlet">Student Homepage</a></li>
-            <li><a href="StartTestServlet">Take Test</a></li>
-            <li><a href="PastTestsServlet" class="active">View Past Tests</a></li>
+            <li><a href="InstructorHomepageServlet">Instructor Homepage</a></li>
+            <li><a href="manageWords.jsp">Manage Words</a></li>
+            <li><a href="instructorPastTests.jsp" class="active">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
     </header>
 
     <div>
         <div id="heading">
+            <form action="InstructorPastTestsServlet" method="get">
+                <div>
+                    <p><input type="text" name="username" placeholder="Student Username"></p>
+                    <p style="text-align: center"><input type="submit" name="submit" value="Get Grades"></p>
+                </div>
+            </form>
             <p id="resultsTable"></p>
         </div>
     </div>
