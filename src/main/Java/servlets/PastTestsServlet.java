@@ -29,7 +29,7 @@ public class PastTestsServlet extends HttpServlet
 		
 		try
 		{
-			grades = queries.getUserGrades("student1");
+			grades = queries.getUserGrades(username);
 			queries.closeConnection();
 		} catch (SQLException e)
 		{
