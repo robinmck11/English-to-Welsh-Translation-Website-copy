@@ -21,7 +21,7 @@
         }
         if (userName == null)
         {
-            response.sendRedirect("instructorLogin.html");
+            response.sendRedirect("adminLogin.html");
         }
     %>
 
