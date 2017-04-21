@@ -47,7 +47,7 @@
 
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
-                    <p><input type="password" name="studentPassword" placeholder="Password"></p>
+                    <p><input type="password" name="studentPassword" placeholder="Password" data-validation="strength" data-validation-strength="3"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Student"></p>
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
-                    <p><input type="password" name="instructorPassword" placeholder="Password"></p>
+                    <p><input type="password" name="instructorPassword" placeholder="Password" data-validation="strength" data-validation-strength="3"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Instructor"></p>
                 </div>
 
@@ -69,5 +69,12 @@
             </form>
         </div>
     </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script>
+        $.validate({
+            modules : 'security',
+            onModulesLoaded : function() {}
+        });
+    </script>
 </body>
 </html>

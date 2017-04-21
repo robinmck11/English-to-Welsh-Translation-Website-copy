@@ -28,7 +28,7 @@
     <header>
         <ul class="topnav">
             <li><a href="AdminHomepageServlet">Admin Homepage</a></li>
-            <li><a href="manageWords.jsp">Manage Words</a></li>
+            <li><a href="manageAccounts.jsp">Manage Accounts</a></li>
             <li><a href="adminPastTests.jsp" class="active">View Grades</a></li>
             <li><a href="LogoutServlet">Logout</a></li>
         </ul>
