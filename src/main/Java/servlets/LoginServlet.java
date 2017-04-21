@@ -61,20 +61,23 @@ public class LoginServlet extends HttpServlet
 		
 		if (dbHash.equals(userHash))
 		{
-			Cookie loginCookie = new Cookie("user", user);
+			String token= "";
+
+			try {
+				AddToken addToken = new AddToken();
+				token = Integer.toString( addToken.generateToken(user));
+				addToken.closeConnection();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			Cookie loginCookie = new Cookie("user", token);
 			//setting cookie to expiry in 30 mins
 			loginCookie.setMaxAge(30 * 60);
 			
 			HttpSession httpSession = request.getSession();
-			AddToken addToken = null;
-			try {
-				addToken = new AddToken();
-				httpSession.setAttribute("username",Integer.toString( addToken.generateToken(user)));
-				addToken.closeConnection();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println("hey");
-			}
+
+			httpSession.setAttribute("username",token);
 
 			response.addCookie(loginCookie);
 			response.sendRedirect(redirectPage);

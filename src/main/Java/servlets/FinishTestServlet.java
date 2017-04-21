@@ -31,7 +31,9 @@ public class FinishTestServlet extends HttpServlet
 			username = checkToken.verifyToken(token);
 			checkToken.closeConnection();
 
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			System.out.println("hey");
+		}
 		
 		InsertGrade insertGrade = new InsertGrade(grade, username);
 		insertGrade.insertGrade();
