@@ -21,7 +21,7 @@ public class AdminPastTestsServlet extends HttpServlet
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String username = (String) request.getAttribute("username");
+		String username = request.getParameter("username");
 		
 		Queries queries = new Queries();
 		String[][] grades;
