@@ -47,7 +47,7 @@
 
                 <div id="addStudent" style="display:none;">
                     <p><input type="text" name="studentUsername" placeholder="Username"></p>
-                    <p><input type="password" name="studentPassword" placeholder="Password" data-validation="strength" data-validation-strength="2"><br></p>
+                    <p><input type="password" name="studentPassword" placeholder="Password" data-validation="strength" data-validation-strength="3"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Student"></p>
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div id="addInstructor" style="display:none;">
                     <p><input type="text" name="instructorUsername" placeholder="Username"></p>
-                    <p><input type="password" name="instructorPassword" placeholder="Password" data-validation="strength" data-validation-strength="2"><br></p>
+                    <p><input type="password" name="instructorPassword" placeholder="Password" data-validation="strength" data-validation-strength="3"><br></p>
                     <p style="text-align: center"><input type="submit" name="submit" value="Add Instructor"></p>
                 </div>
 
