@@ -34,7 +34,7 @@ public class AddToken {
 
 	public int generateToken(String username) throws SQLException {
 
-		String statement = "delete  FROM translator.instructor where username = '"+username+"';";
+		String statement = "delete FROM token where username = '"+username+"';";
 		PreparedStatement preparedStatement = conn.prepareStatement(statement);
 		preparedStatement.executeUpdate();
 		Random rand = new Random();
